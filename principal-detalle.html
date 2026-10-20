@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Detalle de un préstamo de equipo del laboratorio con opciones para registrar la devolución, modificar o eliminar.">
+  <title>Detalle del préstamo · SIGEL</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header id="eq02-encabezado">
+    <a href="index.html" class="eq02-marca"><img src="img/logo.svg" alt="Logotipo de SIGEL: matraz de laboratorio" width="40" height="40"> SIGEL</a>
+    <nav class="eq02-menu" aria-label="Menú principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
+        <li><a href="principal-listado.html">Préstamos</a></li>
+        <li><a href="secundaria-formulario.html">Equipos</a></li>
+        <li><a href="panel.html">Panel</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="eq02-principal">
+    <h1>Préstamo ELE-00045</h1>
+    <p class="eq02-alerta"><strong>Préstamo vencido:</strong> debía devolverse el <time datetime="2026-10-16">16/10/2026</time>. Mientras no lo devuelva, Luis Gómez <em>no puede solicitar otro equipo</em>.</p>
+    <div class="eq02-dos-columnas">
+      <article class="eq02-tarjeta">
+        <h2>Datos del préstamo</h2>
+        <dl class="eq02-detalle">
+          <dt>Equipo</dt>
+          <dd>Osciloscopio digital Rigol DS1054Z · <code>ELE-00045</code></dd>
+          <dt>Tipo de ítem</dt>
+          <dd>Equipo (cuenta para el máximo de 3)</dd>
+          <dt>Estudiante</dt>
+          <dd>Luis Gómez · cédula 8-765-4321 · Ingeniería Electrónica</dd>
+          <dt>Laboratorio</dt>
+          <dd>Electrónica (edificio 3, aula 301)</dd>
+          <dt>Fecha de préstamo</dt>
+          <dd><time datetime="2026-10-13T09:30">13/10/2026, 9:30 a.&nbsp;m.</time></dd>
+          <dt>Fecha de devolución</dt>
+          <dd><time datetime="2026-10-16">16/10/2026</time></dd>
+          <dt>Motivo</dt>
+          <dd>Práctica 4 de Circuitos II.</dd>
+        </dl>
+        <p class="eq02-acciones">
+          <a href="principal-formulario.html" class="eq02-boton eq02-boton-secundario">Modificar</a>
+        </p>
+        <form action="#" method="post">
+          <input type="hidden" name="id_prestamo" value="45">
+          <button type="submit" name="accion" value="eliminar" class="eq02-boton eq02-boton-peligro">Eliminar préstamo</button>
+        </form>
+      </article>
+      <aside class="eq02-aside">
+        <figure>
+          <img src="img/osciloscopio.svg" alt="Ilustración de un osciloscopio digital con una señal en pantalla" width="160" height="120">
+          <figcaption>Osciloscopio <abbr title="Rigol Technologies">Rigol</abbr> DS1054Z.</figcaption>
+        </figure>
+        <h2>Registrar devolución</h2>
+        <form action="#" method="post">
+          <div class="eq02-campo">
+            <label for="fecha_hora_devolucion">Fecha y hora de devolución</label>
+            <input type="datetime-local" id="fecha_hora_devolucion" name="fecha_hora_devolucion" required min="2026-10-13T08:00" max="2026-12-18T20:00">
+          </div>
+          <div class="eq02-campo">
+            <label for="estado_equipo">Estado del equipo</label>
+            <select id="estado_equipo" name="estado_equipo" required>
+              <option value="">Seleccione</option>
+              <option value="bueno">Bueno</option>
+              <option value="danado">Dañado</option>
+            </select>
+          </div>
+          <button type="submit" class="eq02-boton">Registrar devolución</button>
+        </form>
+        <p><a href="principal-listado.html">Volver al listado</a></p>
+      </aside>
+    </div>
+  </main>
+
+  <footer id="eq02-pie" class="eq02-pie">
+    <nav aria-label="Mapa del sitio">
+      <h2>Mapa del sitio</h2>
+      <ul class="eq02-mapa">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+        <li><a href="registro.html">Registro</a></li>
+        <li><a href="recuperar.html">Recuperar contraseña</a></li>
+        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
+        <li><a href="principal-listado.html">Listado de préstamos</a></li>
+        <li><a href="principal-detalle.html">Detalle del préstamo</a></li>
+        <li><a href="secundaria-formulario.html">Registro de equipos</a></li>
+        <li><a href="panel.html">Panel de administración</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+      </ul>
+    </nav>
+    <p><small>&copy; 2026 SIGEL · Equipo 02 · Ariel Jimenez y Alejandro Saenz · Desarrollo Web</small></p>
+  </footer>
+</body>
+</html>
