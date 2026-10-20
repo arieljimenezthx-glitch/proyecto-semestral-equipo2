@@ -77,7 +77,26 @@ Resultado del 19/10/2026 con el Nu HTML Checker y el CSS Validation Service (per
 | perfil.html | 0 | 0 |
 | css/estilos.css | 0 | 0 |
 
-> **PENDIENTE:** agregar las capturas del validador en `docs/capturas_w3c/`.
+### Capturas del validador
+
+**CSS** (`css/estilos.css`, perfil CSS3)
+
+![Validación CSS de estilos.css sin errores](docs/capturas_w3c/css-estilos.png)
+
+**HTML** (cada página en el modo de entrada de texto del Nu HTML Checker)
+
+| Página | Captura |
+|--------|---------|
+| index.html | ![Validación de index.html sin errores](docs/capturas_w3c/index.png) |
+| login.html | ![Validación de login.html sin errores](docs/capturas_w3c/login.png) |
+| registro.html | ![Validación de registro.html sin errores](docs/capturas_w3c/registro.png) |
+| recuperar.html | ![Validación de recuperar.html sin errores](docs/capturas_w3c/recuperar.png) |
+| principal-formulario.html | ![Validación de principal-formulario.html sin errores](docs/capturas_w3c/principal-formulario.png) |
+| principal-listado.html | ![Validación de principal-listado.html sin errores](docs/capturas_w3c/principal-listado.png) |
+| principal-detalle.html | ![Validación de principal-detalle.html sin errores](docs/capturas_w3c/principal-detalle.png) |
+| secundaria-formulario.html | ![Validación de secundaria-formulario.html sin errores](docs/capturas_w3c/secundaria-formulario.png) |
+| panel.html | ![Validación de panel.html sin errores](docs/capturas_w3c/panel.png) |
+| perfil.html | ![Validación de perfil.html sin errores](docs/capturas_w3c/perfil.png) |
 
 ## Documentos
 
