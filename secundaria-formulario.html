@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Registro y listado de los equipos del inventario del laboratorio con su código de inventario.">
+  <title>Registro de equipos · SIGEL</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header id="eq02-encabezado">
+    <a href="index.html" class="eq02-marca"><img src="img/logo.svg" alt="Logotipo de SIGEL: matraz de laboratorio" width="40" height="40"> SIGEL</a>
+    <nav class="eq02-menu" aria-label="Menú principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
+        <li><a href="principal-listado.html">Préstamos</a></li>
+        <li><a href="secundaria-formulario.html" class="eq02-activo" aria-current="page">Equipos</a></li>
+        <li><a href="panel.html">Panel</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="eq02-principal">
+    <h1>Equipos del inventario</h1>
+    <div class="eq02-dos-columnas">
+      <section class="eq02-formulario">
+        <h2>Registrar equipo</h2>
+        <form action="#" method="post" enctype="multipart/form-data">
+          <fieldset>
+            <legend>Identificación</legend>
+            <div class="eq02-rejilla">
+              <div class="eq02-campo">
+                <label for="codigo_inventario">Código de inventario</label>
+                <input type="text" id="codigo_inventario" name="codigo_inventario" required pattern="[A-Z]{3}-[0-9]{5}" minlength="9" maxlength="9" autocomplete="off" placeholder="RED-00123">
+              </div>
+              <div class="eq02-campo">
+                <label for="nombre_equipo">Nombre del equipo</label>
+                <input type="text" id="nombre_equipo" name="nombre_equipo" required minlength="3" maxlength="80" placeholder="Osciloscopio digital">
+              </div>
+              <div class="eq02-campo">
+                <label for="marca">Marca y modelo</label>
+                <input type="text" id="marca" name="marca" maxlength="60" placeholder="Rigol DS1054Z">
+              </div>
+              <div class="eq02-campo">
+                <label for="numero_serie">Número de serie</label>
+                <input type="text" id="numero_serie" name="numero_serie" maxlength="40" autocomplete="off" placeholder="DS1ZA2020">
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Clasificación</legend>
+            <div class="eq02-rejilla">
+              <div class="eq02-campo">
+                <label for="categoria">Categoría</label>
+                <select id="categoria" name="categoria" required>
+                  <option value="">Seleccione</option>
+                  <option value="medicion">Medición</option>
+                  <option value="redes">Redes</option>
+                  <option value="computo">Cómputo</option>
+                  <option value="kit">Kit</option>
+                  <option value="accesorio">Cable o accesorio</option>
+                </select>
+              </div>
+              <div class="eq02-campo">
+                <label for="fecha_adquisicion">Fecha de adquisición</label>
+                <input type="date" id="fecha_adquisicion" name="fecha_adquisicion" max="2026-10-19">
+              </div>
+              <div class="eq02-campo">
+                <label for="foto_equipo">Foto del equipo</label>
+                <input type="file" id="foto_equipo" name="foto_equipo" accept="image/png, image/jpeg">
+              </div>
+              <div class="eq02-campo">
+                <label for="url_manual">Enlace al manual</label>
+                <input type="url" id="url_manual" name="url_manual" maxlength="200" placeholder="https://fabricante.com/manual.pdf">
+              </div>
+            </div>
+            <div class="eq02-opcion">
+              <input type="checkbox" id="disponible" name="disponible" value="1" checked>
+              <label for="disponible">Disponible para préstamo</label>
+            </div>
+          </fieldset>
+          <button type="submit" class="eq02-boton">Guardar equipo</button>
+        </form>
+      </section>
+      <aside class="eq02-aside">
+        <h2>Códigos por categoría</h2>
+        <ul>
+          <li><code>ELE</code> electrónica y medición</li>
+          <li><code>RED</code> redes</li>
+          <li><code>KIT</code> kits</li>
+          <li><code>COM</code> cómputo</li>
+        </ul>
+        <figure>
+          <img src="img/multimetro.svg" alt="Ilustración de un multímetro digital" width="160" height="120">
+          <figcaption>Cada equipo lleva su código en una etiqueta.</figcaption>
+        </figure>
+      </aside>
+    </div>
+
+    <section>
+      <h2>Listado de equipos</h2>
+      <div class="eq02-tabla-contenedor">
+        <table>
+          <caption>Equipos registrados en el inventario</caption>
+          <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Equipo</th>
+              <th scope="col">Categoría</th>
+              <th scope="col">Disponible</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">ELE-00045</th>
+              <td>Osciloscopio Rigol DS1054Z</td>
+              <td>Medición</td>
+              <td>No (prestado)</td>
+            </tr>
+            <tr>
+              <th scope="row">MED-00012</th>
+              <td>Multímetro Fluke 117</td>
+              <td>Medición</td>
+              <td>No (prestado)</td>
+            </tr>
+            <tr>
+              <th scope="row">RED-00123</th>
+              <td>Router Cisco 1941</td>
+              <td>Redes</td>
+              <td>Sí</td>
+            </tr>
+            <tr>
+              <th scope="row">KIT-00007</th>
+              <td>Kit Arduino Uno</td>
+              <td>Kit</td>
+              <td>No (prestado)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer id="eq02-pie" class="eq02-pie">
+    <nav aria-label="Mapa del sitio">
+      <h2>Mapa del sitio</h2>
+      <ul class="eq02-mapa">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+        <li><a href="registro.html">Registro</a></li>
+        <li><a href="recuperar.html">Recuperar contraseña</a></li>
+        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
+        <li><a href="principal-listado.html">Listado de préstamos</a></li>
+        <li><a href="principal-detalle.html">Detalle del préstamo</a></li>
+        <li><a href="secundaria-formulario.html">Registro de equipos</a></li>
+        <li><a href="panel.html">Panel de administración</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+      </ul>
+    </nav>
+    <p><small>&copy; 2026 SIGEL · Equipo 02 · Ariel Jimenez y Alejandro Saenz · Desarrollo Web</small></p>
+  </footer>
+</body>
+</html>

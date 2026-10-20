@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Panel de administración de SIGEL con resumen de préstamos, parámetros de la regla de préstamo y estudiantes.">
+  <title>Panel de administración · SIGEL</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header id="eq02-encabezado">
+    <a href="index.html" class="eq02-marca"><img src="img/logo.svg" alt="Logotipo de SIGEL: matraz de laboratorio" width="40" height="40"> SIGEL</a>
+    <nav class="eq02-menu" aria-label="Menú principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
+        <li><a href="principal-listado.html">Préstamos</a></li>
+        <li><a href="secundaria-formulario.html">Equipos</a></li>
+        <li><a href="panel.html" class="eq02-activo" aria-current="page">Panel</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="eq02-principal">
+    <h1>Panel de administración</h1>
+    <section>
+      <h2>Resumen de hoy</h2>
+      <div class="eq02-tarjetas">
+        <article class="eq02-tarjeta">
+          <h3>Préstamos activos</h3>
+          <p><strong>18</strong> equipos fuera del laboratorio.</p>
+        </article>
+        <article class="eq02-tarjeta">
+          <h3>Vencidos</h3>
+          <p><strong>3</strong> préstamos pasaron su fecha.</p>
+          <a href="principal-listado.html">Ver vencidos</a>
+        </article>
+        <article class="eq02-tarjeta">
+          <h3>Inventario</h3>
+          <p><strong>64</strong> equipos registrados.</p>
+          <a href="secundaria-formulario.html">Gestionar equipos</a>
+        </article>
+      </div>
+    </section>
+
+    <div class="eq02-dos-columnas">
+      <section>
+        <h2>Estudiantes con préstamos</h2>
+        <div class="eq02-tabla-contenedor">
+          <table>
+            <caption>¿Puede solicitar otro préstamo?</caption>
+            <thead>
+              <tr>
+                <th scope="col">Estudiante</th>
+                <th scope="col">Equipos activos</th>
+                <th scope="col">Vencidos</th>
+                <th scope="col">¿Puede solicitar?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Luis Gómez</th>
+                <td>1</td>
+                <td>1</td>
+                <td><span class="eq02-estado eq02-estado-vencido">No, tiene un vencido</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Ana Torres</th>
+                <td>3</td>
+                <td>0</td>
+                <td><span class="eq02-estado eq02-estado-vencido">No, llegó al máximo</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Ariel Jimenez</th>
+                <td>2</td>
+                <td>0</td>
+                <td><span class="eq02-estado">Sí, 1 más</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="eq02-formulario">
+        <h2>Parámetros de préstamo</h2>
+        <form action="#" method="post">
+          <fieldset>
+            <legend>Regla de negocio</legend>
+            <div class="eq02-campo">
+              <label for="max_equipos">Máximo de equipos por estudiante</label>
+              <input type="number" id="max_equipos" name="max_equipos" required min="1" max="10" step="1" value="3">
+            </div>
+            <div class="eq02-campo">
+              <label for="max_dias">Máximo de días por préstamo</label>
+              <input type="number" id="max_dias" name="max_dias" required min="1" max="15" step="1" value="3">
+            </div>
+            <div class="eq02-opcion">
+              <input type="checkbox" id="bloquear_vencidos" name="bloquear_vencidos" value="1" checked>
+              <label for="bloquear_vencidos">Bloquear a quien tenga un préstamo vencido</label>
+            </div>
+          </fieldset>
+          <button type="submit" class="eq02-boton">Guardar parámetros</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer id="eq02-pie" class="eq02-pie">
+    <nav aria-label="Mapa del sitio">
+      <h2>Mapa del sitio</h2>
+      <ul class="eq02-mapa">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+        <li><a href="registro.html">Registro</a></li>
+        <li><a href="recuperar.html">Recuperar contraseña</a></li>
+        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
+        <li><a href="principal-listado.html">Listado de préstamos</a></li>
+        <li><a href="principal-detalle.html">Detalle del préstamo</a></li>
+        <li><a href="secundaria-formulario.html">Registro de equipos</a></li>
+        <li><a href="panel.html">Panel de administración</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+      </ul>
+    </nav>
+    <p><small>&copy; 2026 SIGEL · Equipo 02 · Ariel Jimenez y Alejandro Saenz · Desarrollo Web</small></p>
+  </footer>
+</body>
+</html>
