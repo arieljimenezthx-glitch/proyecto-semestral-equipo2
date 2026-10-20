@@ -88,4 +88,4 @@ Resultado del 19/10/2026 con el Nu HTML Checker y el CSS Validation Service (per
 
 - Editor: Visual Studio Code. Navegador: Google Chrome. Control de versiones: Git y GitHub.
 - Validadores: W3C Nu HTML Checker y W3C CSS Validation Service.
-
+- Se uso Claude para tener una buena organizacion general y un progreso ordenado 
