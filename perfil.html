@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Perfil del estudiante en SIGEL con sus datos y los préstamos de equipos activos.">
+  <title>Mi perfil · SIGEL</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header id="eq02-encabezado">
+    <a href="index.html" class="eq02-marca"><img src="img/logo.svg" alt="Logotipo de SIGEL: matraz de laboratorio" width="40" height="40"> SIGEL</a>
+    <nav class="eq02-menu" aria-label="Menú principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
+        <li><a href="principal-listado.html">Préstamos</a></li>
+        <li><a href="secundaria-formulario.html">Equipos</a></li>
+        <li><a href="panel.html">Panel</a></li>
+        <li><a href="perfil.html" class="eq02-activo" aria-current="page">Mi perfil</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="eq02-principal">
+    <h1>Mi perfil</h1>
+    <div class="eq02-dos-columnas">
+      <section class="eq02-tarjeta">
+        <h2>Préstamos activos</h2>
+        <ul>
+          <li><strong>KIT-00007</strong> · Kit Arduino Uno · devolver el <time datetime="2026-10-22">22/10/2026</time></li>
+          <li><strong>MED-00020</strong> · Multímetro digital · devolver el <time datetime="2026-10-21">21/10/2026</time></li>
+        </ul>
+        <p><label for="eq02-mis-equipos">Uso de tu límite</label></p>
+        <meter id="eq02-mis-equipos" min="0" max="3" low="2" high="3" optimum="0" value="2">2 de 3</meter>
+        <p>Tienes <strong>2 de 3</strong> equipos y ningún préstamo vencido: puedes solicitar 1 más.</p>
+        <p class="eq02-acciones"><a href="principal-formulario.html" class="eq02-boton">Solicitar préstamo</a></p>
+      </section>
+      <aside class="eq02-aside">
+        <figure>
+          <img src="img/avatar.svg" alt="Foto de perfil genérica" width="120" height="120">
+          <figcaption>Ariel Jimenez</figcaption>
+        </figure>
+        <h2>Mis datos</h2>
+        <dl class="eq02-detalle">
+          <dt>Cédula</dt>
+          <dd>8-123-4567</dd>
+          <dt>Correo</dt>
+          <dd>ariel.jimenez@utp.ac.pa</dd>
+          <dt>Carrera</dt>
+          <dd>Ingeniería de Sistemas · 3.<sup>er</sup> semestre</dd>
+        </dl>
+        <p><a href="recuperar.html">Cambiar contraseña</a></p>
+      </aside>
+    </div>
+  </main>
+
+  <footer id="eq02-pie" class="eq02-pie">
+    <nav aria-label="Mapa del sitio">
+      <h2>Mapa del sitio</h2>
+      <ul class="eq02-mapa">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+        <li><a href="registro.html">Registro</a></li>
+        <li><a href="recuperar.html">Recuperar contraseña</a></li>
+        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
+        <li><a href="principal-listado.html">Listado de préstamos</a></li>
+        <li><a href="principal-detalle.html">Detalle del préstamo</a></li>
+        <li><a href="secundaria-formulario.html">Registro de equipos</a></li>
+        <li><a href="panel.html">Panel de administración</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+      </ul>
+    </nav>
+    <p><small>&copy; 2026 SIGEL · Equipo 02 · Ariel Jimenez y Alejandro Saenz · Desarrollo Web</small></p>
+  </footer>
+</body>
+</html>
