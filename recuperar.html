@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recuperación de la contraseña de una cuenta de SIGEL mediante el correo institucional.">
+  <title>Recuperar contraseña · SIGEL</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header id="eq02-encabezado">
+    <a href="index.html" class="eq02-marca"><img src="img/logo.svg" alt="Logotipo de SIGEL: matraz de laboratorio" width="40" height="40"> SIGEL</a>
+    <nav class="eq02-menu" aria-label="Menú principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
+        <li><a href="principal-listado.html">Préstamos</a></li>
+        <li><a href="secundaria-formulario.html">Equipos</a></li>
+        <li><a href="panel.html">Panel</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="eq02-principal">
+    <div class="eq02-dos-columnas">
+      <section class="eq02-formulario">
+        <h1>Recuperar contraseña</h1>
+        <form action="#" method="post">
+          <fieldset>
+            <legend>Paso 1: identifícate</legend>
+            <div class="eq02-campo">
+              <label for="correo">Correo institucional</label>
+              <input type="email" id="correo" name="correo" required maxlength="100" autocomplete="email" placeholder="nombre.apellido@utp.ac.pa">
+            </div>
+            <div class="eq02-campo">
+              <label for="cedula">Cédula</label>
+              <input type="text" id="cedula" name="cedula" required pattern="[0-9]{1,2}-[0-9]{1,4}-[0-9]{1,6}" maxlength="15" autocomplete="off" placeholder="8-123-4567">
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Paso 2: nueva contraseña</legend>
+            <div class="eq02-campo">
+              <label for="codigo_verificacion">Código de verificación recibido por correo</label>
+              <input type="text" id="codigo_verificacion" name="codigo_verificacion" required pattern="[0-9]{6}" minlength="6" maxlength="6" autocomplete="one-time-code" placeholder="6 dígitos">
+            </div>
+            <div class="eq02-campo">
+              <label for="nueva_contrasena">Nueva contraseña</label>
+              <input type="password" id="nueva_contrasena" name="nueva_contrasena" required minlength="8" maxlength="64" autocomplete="new-password" placeholder="Mínimo 8 caracteres">
+            </div>
+          </fieldset>
+          <button type="submit" class="eq02-boton">Cambiar contraseña</button>
+        </form>
+      </section>
+      <aside class="eq02-aside">
+        <h2>¿Cómo funciona?</h2>
+        <ol>
+          <li>Escribe tu correo y tu cédula.</li>
+          <li>Recibirás un código de 6 dígitos válido por <strong>15 minutos</strong>.</li>
+          <li>Escribe el código y tu nueva contraseña.</li>
+        </ol>
+        <p><a href="login.html">Volver a iniciar sesión</a></p>
+      </aside>
+    </div>
+  </main>
+
+  <footer id="eq02-pie" class="eq02-pie">
+    <nav aria-label="Mapa del sitio">
+      <h2>Mapa del sitio</h2>
+      <ul class="eq02-mapa">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+        <li><a href="registro.html">Registro</a></li>
+        <li><a href="recuperar.html">Recuperar contraseña</a></li>
+        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
+        <li><a href="principal-listado.html">Listado de préstamos</a></li>
+        <li><a href="principal-detalle.html">Detalle del préstamo</a></li>
+        <li><a href="secundaria-formulario.html">Registro de equipos</a></li>
+        <li><a href="panel.html">Panel de administración</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+      </ul>
+    </nav>
+    <p><small>&copy; 2026 SIGEL · Equipo 02 · Ariel Jimenez y Alejandro Saenz · Desarrollo Web</small></p>
+  </footer>
+</body>
+</html>

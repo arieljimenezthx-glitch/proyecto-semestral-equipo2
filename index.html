@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SIGEL: solicitud y control de préstamos de equipos del laboratorio para estudiantes, laboratoristas y administradores.">
+  <title>Inicio · SIGEL</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header id="eq02-encabezado">
+    <a href="index.html" class="eq02-marca"><img src="img/logo.svg" alt="Logotipo de SIGEL: matraz de laboratorio" width="40" height="40"> SIGEL</a>
+    <nav class="eq02-menu" aria-label="Menú principal">
+      <ul>
+        <li><a href="index.html" class="eq02-activo" aria-current="page">Inicio</a></li>
+        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
+        <li><a href="principal-listado.html">Préstamos</a></li>
+        <li><a href="secundaria-formulario.html">Equipos</a></li>
+        <li><a href="panel.html">Panel</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="eq02-principal">
+    <section class="eq02-portada">
+      <div>
+        <h1>Préstamos de equipos del laboratorio, sin hojas de papel</h1>
+        <p><strong>SIGEL</strong> permite a los estudiantes solicitar osciloscopios, multímetros, kits y laptops en línea, y al laboratorista saber en todo momento <em>quién tiene cada equipo</em> y cuándo debe devolverlo.</p>
+        <p class="eq02-acciones">
+          <a href="login.html" class="eq02-boton">Iniciar sesión</a>
+          <a href="registro.html" class="eq02-boton eq02-boton-secundario">Crear cuenta de estudiante</a>
+        </p>
+      </div>
+      <figure>
+        <img src="img/laboratorio.svg" alt="Ilustración de una mesa de laboratorio con osciloscopio, multímetro y laptop" width="420" height="260">
+        <figcaption>Equipos disponibles en el laboratorio de electrónica.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>¿Qué puedes hacer según tu rol?</h2>
+      <div class="eq02-tarjetas">
+        <article class="eq02-tarjeta">
+          <h3>Estudiante</h3>
+          <ul>
+            <li>Solicitar un préstamo.</li>
+            <li>Ver sus préstamos activos y fechas de devolución.</li>
+          </ul>
+          <a href="principal-formulario.html">Solicitar préstamo</a>
+        </article>
+        <article class="eq02-tarjeta">
+          <h3>Laboratorista</h3>
+          <ul>
+            <li>Buscar y filtrar préstamos.</li>
+            <li>Registrar entregas y devoluciones.</li>
+          </ul>
+          <a href="principal-listado.html">Ver préstamos</a>
+        </article>
+        <article class="eq02-tarjeta">
+          <h3>Administrador</h3>
+          <ul>
+            <li>Registrar equipos del inventario.</li>
+            <li>Configurar los parámetros de préstamo.</li>
+          </ul>
+          <a href="panel.html">Ir al panel</a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Reglas de préstamo</h2>
+      <ol>
+        <li>Un estudiante puede tener como máximo <strong>3 equipos</strong> prestados a la vez. Un <em>kit</em> cuenta como un equipo; los cables y accesorios no cuentan.</li>
+        <li>Cada préstamo dura como máximo <strong>3 días</strong>.</li>
+        <li>Quien tenga un préstamo <strong>vencido</strong> no puede solicitar otro hasta devolverlo.</li>
+      </ol>
+      <p class="eq02-nota">La cantidad de equipos y los días son parámetros que el administrador puede cambiar. Vigentes desde el <time datetime="2026-10-19">19 de octubre de 2026</time>.</p>
+    </section>
+  </main>
+
+  <footer id="eq02-pie" class="eq02-pie">
+    <nav aria-label="Mapa del sitio">
+      <h2>Mapa del sitio</h2>
+      <ul class="eq02-mapa">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="login.html">Iniciar sesión</a></li>
+        <li><a href="registro.html">Registro</a></li>
+        <li><a href="recuperar.html">Recuperar contraseña</a></li>
+        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
+        <li><a href="principal-listado.html">Listado de préstamos</a></li>
+        <li><a href="principal-detalle.html">Detalle del préstamo</a></li>
+        <li><a href="secundaria-formulario.html">Registro de equipos</a></li>
+        <li><a href="panel.html">Panel de administración</a></li>
+        <li><a href="perfil.html">Mi perfil</a></li>
+      </ul>
+    </nav>
+    <p><small>&copy; 2026 SIGEL · Equipo 02 · Ariel Jimenez y Alejandro Saenz · Desarrollo Web</small></p>
+  </footer>
+</body>
+</html>
