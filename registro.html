@@ -41,8 +41,8 @@
             </div>
             <div class="eq02-campo">
               <label for="cedula">Cédula</label>
-              <input type="text" id="cedula" name="cedula" required pattern="[0-9]{1,2}-[0-9]{1,4}-[0-9]{1,6}" maxlength="15" autocomplete="off" placeholder="8-123-4567">
-              <span class="eq02-ayuda">Formato: provincia-tomo-asiento.</span>
+              <input type="text" id="cedula" name="cedula" required pattern="[0-9]{1,2}-[0-9]{1,4}-[0-9]{1,6}" maxlength="15" autocomplete="off" placeholder="8-123-4567" title="Cédula con guiones: provincia-tomo-asiento. Ej.: 8-123-4567">
+              <span class="eq02-ayuda">Escríbela con guiones: 8-123-4567 (provincia-tomo-asiento).</span>
             </div>
             <div class="eq02-campo">
               <label for="fecha_nacimiento">Fecha de nacimiento</label>
@@ -59,7 +59,8 @@
             </div>
             <div class="eq02-campo">
               <label for="telefono">Teléfono celular</label>
-              <input type="tel" id="telefono" name="telefono" required pattern="6[0-9]{3}-[0-9]{4}" maxlength="9" autocomplete="tel" placeholder="6123-4567">
+              <input type="tel" id="telefono" name="telefono" required pattern="6[0-9]{3}-?[0-9]{4}" maxlength="9" autocomplete="tel" placeholder="6123-4567" title="Celular de 8 dígitos que empieza en 6, con o sin guion. Ej.: 6123-4567">
+              <span class="eq02-ayuda">Ej.: 6123-4567 o 61234567.</span>
             </div>
             <div class="eq02-campo">
               <label for="carrera">Carrera</label>

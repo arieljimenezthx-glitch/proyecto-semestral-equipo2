@@ -55,10 +55,6 @@ HTML solo puede exigir el formato del código (`pattern`) y limitar fechas (`min
 - CSS: una hoja externa `css/estilos.css`, sin estilos en línea. Selector universal (`*`), de agrupación (`h1, h2, h3`), de clase (`.eq02-boton`) y de id (`#eq02-encabezado`), Flexbox, Grid y `@media (max-width: 760px)` para móvil.
 - Navegación: el menú del encabezado y el mapa del sitio del pie enlazan las 10 páginas desde cualquier página.
 
-## Cambio de requerimiento comunicado en clase
-
-> **PENDIENTE:** describir el cambio que el docente comunicó en clase y en qué páginas se incorporó.
-
 ## Validación W3C
 
 Resultado del 19/10/2026 con el Nu HTML Checker y el CSS Validation Service (perfil CSS3):
@@ -100,7 +96,11 @@ Resultado del 19/10/2026 con el Nu HTML Checker y el CSS Validation Service (per
 
 ## Documentos
 
-- `docs/usabilidad.pdf`: formato de la prueba de usabilidad (3 personas, 3 tareas y cambios al diseño). `docs/usabilidad.md` es la versión editable.
+- `docs/propuesta.pdf`: propuesta del sistema (problema, roles y permisos, historias de usuario, requerimientos, entidades, benchmark, OWASP y plan de trabajo).
+- `docs/wireframes.pdf`: wireframes de las 10 pantallas, 4 versiones móviles, anotaciones y flujo de navegación por rol.
+- `docs/guia_estilo.pdf`: paleta, tipografías, componentes y contraste.
+- `docs/matriz_responsabilidades.pdf`: tareas con responsable, revisor, fecha y estado.
+- `docs/usabilidad.pdf`: resultados de la prueba de usabilidad del 20/10/2026 (3 personas, 3 tareas, 9 de 9 completadas) y los 2 cambios al diseño aplicados en teléfono y cédula. `docs/usabilidad.md` es la versión editable.
 - `docs/bitacora.md`: bitácora de las sesiones de trabajo.
 
 ## Declaración de herramientas
