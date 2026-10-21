@@ -55,10 +55,6 @@ HTML solo puede exigir el formato del código (`pattern`) y limitar fechas (`min
 - CSS: una hoja externa `css/estilos.css`, sin estilos en línea. Selector universal (`*`), de agrupación (`h1, h2, h3`), de clase (`.eq02-boton`) y de id (`#eq02-encabezado`), Flexbox, Grid y `@media (max-width: 760px)` para móvil.
 - Navegación: el menú del encabezado y el mapa del sitio del pie enlazan las 10 páginas desde cualquier página.
 
-## Cambio de requerimiento comunicado en clase
-
-> **PENDIENTE:** describir el cambio que el docente comunicó en clase y en qué páginas se incorporó.
-
 ## Validación W3C
 
 Resultado del 19/10/2026 con el Nu HTML Checker y el CSS Validation Service (perfil CSS3):
