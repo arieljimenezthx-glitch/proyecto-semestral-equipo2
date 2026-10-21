@@ -104,7 +104,7 @@ Resultado del 19/10/2026 con el Nu HTML Checker y el CSS Validation Service (per
 - `docs/wireframes.pdf`: wireframes de las 10 pantallas, 4 versiones móviles, anotaciones y flujo de navegación por rol.
 - `docs/guia_estilo.pdf`: paleta, tipografías, componentes y contraste.
 - `docs/matriz_responsabilidades.pdf`: tareas con responsable, revisor, fecha y estado.
-- `docs/usabilidad.pdf`: formato de la prueba de usabilidad (3 personas, 3 tareas y cambios al diseño). `docs/usabilidad.md` es la versión editable.
+- `docs/usabilidad.pdf`: resultados de la prueba de usabilidad del 20/10/2026 (3 personas, 3 tareas, 9 de 9 completadas) y los 2 cambios al diseño aplicados en teléfono y cédula. `docs/usabilidad.md` es la versión editable.
 - `docs/bitacora.md`: bitácora de las sesiones de trabajo.
 
 ## Declaración de herramientas
