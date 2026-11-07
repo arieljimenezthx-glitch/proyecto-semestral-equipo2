@@ -55,7 +55,8 @@
           <div class="eq02-rejilla">
             <div class="eq02-campo">
               <label for="correo">Correo institucional</label>
-              <input type="email" id="correo" name="correo" required maxlength="100" autocomplete="email" placeholder="nombre.apellido@utp.ac.pa">
+              <input type="email" id="correo" name="correo" required maxlength="100" autocomplete="email" placeholder="nombre.apellido@utp.ac.pa" pattern=".+@utp\.ac\.pa" title="Usa tu correo institucional que termina en @utp.ac.pa" aria-describedby="eq02-ayuda-correo">
+              <span class="eq02-ayuda" id="eq02-ayuda-correo">Solo correos institucionales que terminan en @utp.ac.pa.</span>
             </div>
             <div class="eq02-campo">
               <label for="telefono">Teléfono celular</label>
