@@ -88,14 +88,15 @@
       <section class="eq02-formulario">
         <h2>Parámetros de préstamo</h2>
         <form action="#" method="post">
+          <p class="eq02-nota">Los campos marcados con <span class="eq02-obligatorio">*</span> son obligatorios.</p>
           <fieldset>
             <legend>Regla de negocio</legend>
             <div class="eq02-campo">
-              <label for="max_equipos">Máximo de equipos por estudiante</label>
+              <label for="max_equipos">Máximo de equipos por estudiante <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
               <input type="number" id="max_equipos" name="max_equipos" required min="1" max="10" step="1" value="3">
             </div>
             <div class="eq02-campo">
-              <label for="max_dias">Máximo de días por préstamo</label>
+              <label for="max_dias">Máximo de días por préstamo <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
               <input type="number" id="max_dias" name="max_dias" required min="1" max="15" step="1" value="3">
             </div>
             <div class="eq02-opcion">

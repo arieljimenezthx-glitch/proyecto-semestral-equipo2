@@ -282,6 +282,16 @@ input[type="checkbox"], input[type="radio"] {
   margin-right: 0.4rem;
 }
 
+.eq02-obligatorio {
+  color: #A4161A;
+  font-weight: bold;
+}
+
+.eq02-grupo {
+  margin-bottom: 0.9rem;
+  padding: 0.6rem 0.8rem;
+}
+
 .eq02-opcion {
   display: flex;
   align-items: center;
