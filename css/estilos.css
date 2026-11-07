@@ -58,6 +58,16 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
+/* Foco visible al navegar con teclado (Tab) */
+a:focus, button:focus {
+  outline: 3px solid #084C37;
+  outline-offset: 2px;
+}
+
+#eq02-encabezado a:focus, #eq02-pie a:focus {
+  outline-color: #FFFFFF;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -157,6 +167,11 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+}
+
+/* Permite que las tablas se desplacen dentro de su recuadro sin ensanchar la página en móvil */
+.eq02-dos-columnas > *, .eq02-tarjetas > *, .eq02-portada > * {
+  min-width: 0;
 }
 
 .eq02-tarjeta, .eq02-aside, .eq02-formulario {
@@ -273,7 +288,8 @@ input, select, textarea {
 }
 
 input:focus, select:focus, textarea:focus {
-  outline: 3px solid #9ED9C1;
+  outline: 3px solid #084C37;
+  outline-offset: 1px;
   border-color: #0B6E4F;
 }
 
