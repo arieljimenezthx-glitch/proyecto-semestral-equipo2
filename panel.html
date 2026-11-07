@@ -27,19 +27,21 @@
     <h1>Panel de administración</h1>
     <section>
       <h2>Resumen de hoy</h2>
+      <p class="eq02-nota">Datos de demostración al 19/10/2026.</p>
       <div class="eq02-tarjetas">
         <article class="eq02-tarjeta">
-          <h3>Préstamos activos</h3>
-          <p><strong>18</strong> equipos fuera del laboratorio.</p>
+          <h3>Equipos fuera</h3>
+          <p><strong>4</strong> equipos fuera del laboratorio: 3 dentro del plazo y 1 vencido sin devolver.</p>
+          <a href="principal-listado.html">Ver préstamos</a>
         </article>
         <article class="eq02-tarjeta">
           <h3>Vencidos</h3>
-          <p><strong>3</strong> préstamos pasaron su fecha.</p>
-          <a href="principal-listado.html">Ver vencidos</a>
+          <p><strong>1</strong> préstamo pasó su fecha de devolución.</p>
+          <a href="principal-detalle.html#eq02-prestamo-ele-00045">Ver el préstamo vencido</a>
         </article>
         <article class="eq02-tarjeta">
           <h3>Inventario</h3>
-          <p><strong>64</strong> equipos registrados.</p>
+          <p><strong>5</strong> equipos registrados; 1 disponible para préstamo.</p>
           <a href="secundaria-formulario.html">Gestionar equipos</a>
         </article>
       </div>
@@ -54,8 +56,8 @@
             <thead>
               <tr>
                 <th scope="col">Estudiante</th>
-                <th scope="col">Equipos activos</th>
-                <th scope="col">Vencidos</th>
+                <th scope="col">Equipos en su poder</th>
+                <th scope="col">Vencidos sin devolver</th>
                 <th scope="col">¿Puede solicitar?</th>
               </tr>
             </thead>
@@ -68,9 +70,9 @@
               </tr>
               <tr>
                 <th scope="row">Ana Torres</th>
-                <td>3</td>
+                <td>1</td>
                 <td>0</td>
-                <td><span class="eq02-estado eq02-estado-vencido">No, llegó al máximo</span></td>
+                <td><span class="eq02-estado">Sí, 2 más</span></td>
               </tr>
               <tr>
                 <th scope="row">Ariel Jimenez</th>
@@ -81,18 +83,20 @@
             </tbody>
           </table>
         </div>
+        <p class="eq02-nota">Un préstamo vencido sin devolver sigue contando como equipo en poder del estudiante.</p>
       </section>
       <section class="eq02-formulario">
         <h2>Parámetros de préstamo</h2>
         <form action="#" method="post">
+          <p class="eq02-nota">Los campos marcados con <span class="eq02-obligatorio">*</span> son obligatorios.</p>
           <fieldset>
             <legend>Regla de negocio</legend>
             <div class="eq02-campo">
-              <label for="max_equipos">Máximo de equipos por estudiante</label>
+              <label for="max_equipos">Máximo de equipos por estudiante <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
               <input type="number" id="max_equipos" name="max_equipos" required min="1" max="10" step="1" value="3">
             </div>
             <div class="eq02-campo">
-              <label for="max_dias">Máximo de días por préstamo</label>
+              <label for="max_dias">Máximo de días por préstamo <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
               <input type="number" id="max_dias" name="max_dias" required min="1" max="15" step="1" value="3">
             </div>
             <div class="eq02-opcion">

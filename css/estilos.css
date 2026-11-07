@@ -58,6 +58,16 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
+/* Foco visible al navegar con teclado (Tab) */
+a:focus, button:focus {
+  outline: 3px solid #084C37;
+  outline-offset: 2px;
+}
+
+#eq02-encabezado a:focus, #eq02-pie a:focus {
+  outline-color: #FFFFFF;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -157,6 +167,11 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+}
+
+/* Permite que las tablas se desplacen dentro de su recuadro sin ensanchar la página en móvil */
+.eq02-dos-columnas > *, .eq02-tarjetas > *, .eq02-portada > * {
+  min-width: 0;
 }
 
 .eq02-tarjeta, .eq02-aside, .eq02-formulario {
@@ -273,13 +288,24 @@ input, select, textarea {
 }
 
 input:focus, select:focus, textarea:focus {
-  outline: 3px solid #9ED9C1;
+  outline: 3px solid #084C37;
+  outline-offset: 1px;
   border-color: #0B6E4F;
 }
 
 input[type="checkbox"], input[type="radio"] {
   width: auto;
   margin-right: 0.4rem;
+}
+
+.eq02-obligatorio {
+  color: #A4161A;
+  font-weight: bold;
+}
+
+.eq02-grupo {
+  margin-bottom: 0.9rem;
+  padding: 0.6rem 0.8rem;
 }
 
 .eq02-opcion {
@@ -357,12 +383,31 @@ tfoot td {
   color: #084C37;
 }
 
+.eq02-estado-devuelto {
+  background-color: #E4E7EB;
+  color: #3E4C59;
+}
+
 .eq02-estado-vencido {
   background-color: #FDECEC;
   color: #A4161A;
 }
 
 /* Detalle */
+.eq02-sin-corte {
+  white-space: nowrap;
+}
+
+.eq02-prestamo {
+  margin-bottom: 1.5rem;
+  scroll-margin-top: 1rem;
+}
+
+.eq02-prestamo:target {
+  outline: 3px solid #0B6E4F;
+  outline-offset: 4px;
+}
+
 .eq02-detalle dt {
   font-weight: bold;
   color: #084C37;

@@ -29,15 +29,16 @@
       <section class="eq02-formulario">
         <h2>Registrar equipo</h2>
         <form action="#" method="post" enctype="multipart/form-data">
+          <p class="eq02-nota">Los campos marcados con <span class="eq02-obligatorio">*</span> son obligatorios.</p>
           <fieldset>
             <legend>Identificación</legend>
             <div class="eq02-rejilla">
               <div class="eq02-campo">
-                <label for="codigo_inventario">Código de inventario</label>
+                <label for="codigo_inventario">Código de inventario <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
                 <input type="text" id="codigo_inventario" name="codigo_inventario" required pattern="[A-Z]{3}-[0-9]{5}" minlength="9" maxlength="9" autocomplete="off" placeholder="RED-00123">
               </div>
               <div class="eq02-campo">
-                <label for="nombre_equipo">Nombre del equipo</label>
+                <label for="nombre_equipo">Nombre del equipo <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
                 <input type="text" id="nombre_equipo" name="nombre_equipo" required minlength="3" maxlength="80" placeholder="Osciloscopio digital">
               </div>
               <div class="eq02-campo">
@@ -54,9 +55,10 @@
             <legend>Clasificación</legend>
             <div class="eq02-rejilla">
               <div class="eq02-campo">
-                <label for="categoria">Categoría</label>
+                <label for="categoria">Categoría <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
                 <select id="categoria" name="categoria" required>
                   <option value="">Seleccione</option>
+                  <option value="electronica">Electrónica</option>
                   <option value="medicion">Medición</option>
                   <option value="redes">Redes</option>
                   <option value="computo">Cómputo</option>
@@ -88,7 +90,8 @@
       <aside class="eq02-aside">
         <h2>Códigos por categoría</h2>
         <ul>
-          <li><code>ELE</code> electrónica y medición</li>
+          <li><code>ELE</code> electrónica: osciloscopios, fuentes y generadores</li>
+          <li><code>MED</code> medición: multímetros</li>
           <li><code>RED</code> redes</li>
           <li><code>KIT</code> kits</li>
           <li><code>COM</code> cómputo</li>
@@ -102,9 +105,10 @@
 
     <section>
       <h2>Listado de equipos</h2>
+      <p class="eq02-nota">Datos de demostración al 19/10/2026.</p>
       <div class="eq02-tabla-contenedor">
         <table>
-          <caption>Equipos registrados en el inventario</caption>
+          <caption>Equipos registrados en el inventario (5)</caption>
           <thead>
             <tr>
               <th scope="col">Código</th>
@@ -117,8 +121,8 @@
             <tr>
               <th scope="row">ELE-00045</th>
               <td>Osciloscopio Rigol DS1054Z</td>
-              <td>Medición</td>
-              <td>No (prestado)</td>
+              <td>Electrónica</td>
+              <td>No (préstamo vencido, sin devolver)</td>
             </tr>
             <tr>
               <th scope="row">MED-00012</th>
@@ -127,16 +131,22 @@
               <td>No (prestado)</td>
             </tr>
             <tr>
-              <th scope="row">RED-00123</th>
-              <td>Router Cisco 1941</td>
-              <td>Redes</td>
-              <td>Sí</td>
+              <th scope="row">MED-00020</th>
+              <td>Multímetro UNI-T UT33D</td>
+              <td>Medición</td>
+              <td>No (prestado)</td>
             </tr>
             <tr>
               <th scope="row">KIT-00007</th>
               <td>Kit Arduino Uno</td>
               <td>Kit</td>
               <td>No (prestado)</td>
+            </tr>
+            <tr>
+              <th scope="row">RED-00123</th>
+              <td>Router Cisco 1941</td>
+              <td>Redes</td>
+              <td>Sí</td>
             </tr>
           </tbody>
         </table>
