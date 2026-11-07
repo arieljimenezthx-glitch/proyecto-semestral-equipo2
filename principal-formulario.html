@@ -75,10 +75,12 @@
           </fieldset>
           <fieldset>
             <legend>Fechas del préstamo</legend>
+            <p class="eq02-nota">Datos de demostración: fecha de referencia 19/10/2026.</p>
             <div class="eq02-rejilla">
               <div class="eq02-campo">
                 <label for="fecha_prestamo">Fecha de préstamo</label>
-                <input type="date" id="fecha_prestamo" name="fecha_prestamo" required min="2026-10-19" max="2026-12-18">
+                <input type="date" id="fecha_prestamo" name="fecha_prestamo" required min="2026-10-19" max="2026-10-19" value="2026-10-19" aria-describedby="eq02-ayuda-fecha-prestamo">
+                <span class="eq02-ayuda" id="eq02-ayuda-fecha-prestamo">En este ejemplo el préstamo sale el 19/10/2026.</span>
               </div>
               <div class="eq02-campo">
                 <label for="hora_retiro">Hora de retiro</label>
@@ -86,8 +88,8 @@
               </div>
               <div class="eq02-campo">
                 <label for="fecha_devolucion">Fecha de devolución</label>
-                <input type="date" id="fecha_devolucion" name="fecha_devolucion" required min="2026-10-19" max="2026-10-22">
-                <span class="eq02-ayuda">Máximo 3 días después de la fecha de préstamo.</span>
+                <input type="date" id="fecha_devolucion" name="fecha_devolucion" required min="2026-10-19" max="2026-10-22" aria-describedby="eq02-ayuda-fecha-devolucion">
+                <span class="eq02-ayuda" id="eq02-ayuda-fecha-devolucion">Máximo 3 días: en este ejemplo, del 19/10/2026 al 22/10/2026. En la maqueta el rango es fijo; el sistema final lo calculará desde la fecha de préstamo.</span>
               </div>
               <div class="eq02-campo">
                 <label for="cantidad_accesorios">Cables o accesorios adicionales</label>
