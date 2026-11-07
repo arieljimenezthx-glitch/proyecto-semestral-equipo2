@@ -357,12 +357,31 @@ tfoot td {
   color: #084C37;
 }
 
+.eq02-estado-devuelto {
+  background-color: #E4E7EB;
+  color: #3E4C59;
+}
+
 .eq02-estado-vencido {
   background-color: #FDECEC;
   color: #A4161A;
 }
 
 /* Detalle */
+.eq02-sin-corte {
+  white-space: nowrap;
+}
+
+.eq02-prestamo {
+  margin-bottom: 1.5rem;
+  scroll-margin-top: 1rem;
+}
+
+.eq02-prestamo:target {
+  outline: 3px solid #0B6E4F;
+  outline-offset: 4px;
+}
+
 .eq02-detalle dt {
   font-weight: bold;
   color: #084C37;
