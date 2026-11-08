@@ -1,110 +1,154 @@
 # SIGEL · Sistema de Gestión de Préstamos de Equipos del Laboratorio
 
-Equipo 02 · Desarrollo Web · Hito #1 (Entrega final)
+Equipo 02 · Desarrollo Web · Hito #2 (Integración HTML/CSS con backend PHP)
 
-## Integrantes y roles del hito
+## Integrantes
 
-| Integrante | Usuario GitHub | Rol |
-|------------|----------------|-----|
-| Ariel Jimenez | [arieljimenezthx-glitch](https://github.com/arieljimenezthx-glitch) | Líder de proyecto y repositorio · Desarrollo HTML5/CSS3 |
-| Alejandro Saenz | [Alejo50716](https://github.com/Alejo50716) | Diseño y experiencia de usuario · Calidad, seguridad y documentación |
+| Integrante | Usuario GitHub |
+|------------|----------------|
+| Ariel Jimenez | [arieljimenezthx-glitch](https://github.com/arieljimenezthx-glitch) |
+| Alejandro Saenz | [Alejo50716](https://github.com/Alejo50716) |
+
+La distribución de roles del hito está en `docs/matriz_responsabilidades.pdf`.
 
 ## Descripción
 
 SIGEL reemplaza la hoja de papel con la que hoy se prestan los equipos del laboratorio (osciloscopios, multímetros, kits, routers y laptops). El estudiante solicita el préstamo en línea, el laboratorista sabe quién tiene cada equipo y cuándo debe devolverlo, y el administrador gestiona el inventario y los parámetros de préstamo.
 
-## Cómo abrir el sitio
+## Requisitos
 
-Abrir `index.html` en el navegador. Es una maqueta estática HTML5 + CSS3, sin JavaScript ni servidor.
+- PHP 8.2 o superior. Probado con PHP 8.2.12 de XAMPP.
+- Sin base de datos todavía. MySQL llega en el Hito #3.
+- Sin frameworks ni Composer.
 
-## Personalización asignada
+## Cómo ejecutar el proyecto
 
-| Elemento | Valor | Dónde se aplica |
-|----------|-------|-----------------|
-| Prefijo | `eq02-` | Todas las clases e `id` de estilo (`#eq02-encabezado`, `.eq02-boton`, `.eq02-campo`…) |
-| Color de acento | `#0B6E4F` | Encabezado, botones, enlaces, `legend` y encabezados de tabla. Guía de estilo al inicio de `css/estilos.css` |
-| Campo especial | Código de inventario: 3 letras, guion y 5 números (ej. `RED-00123`) | `principal-formulario.html` (`#eq02-bloque-equipo`): `<input type="text" name="codigo_inventario" pattern="[A-Z]{3}-[0-9]{5}" minlength="9" maxlength="9" required>`. También en `secundaria-formulario.html` |
-| Regla de negocio | Máximo 3 equipos prestados a la vez (un kit cuenta como uno; cables y accesorios no cuentan). Cada préstamo dura máximo 3 días y quien tenga un préstamo vencido no puede solicitar otro. Cantidad y días configurables. | `index.html` (reglas), `principal-formulario.html` (tipo de ítem, fecha de devolución con `max`, `<meter>` de 2 de 3), `principal-listado.html` y `principal-detalle.html` (estado *Vencido* y aviso de bloqueo), `panel.html` (tabla "¿Puede solicitar?" y formulario de parámetros `max_equipos` y `max_dias`), `perfil.html` |
+Opción 1: servidor de PHP incluido. Desde la carpeta del proyecto:
 
-HTML solo puede exigir el formato del código (`pattern`) y limitar fechas (`min`/`max`). Contar los equipos prestados, calcular los 3 días y detectar vencidos se validará en PHP (Hito #2) con los datos de MySQL (Hito #3).
+```bash
+php -S localhost:8000
+```
+
+Si PHP está instalado con XAMPP, usa la ruta completa:
+
+```bash
+"C:\xampp\php\php.exe" -S localhost:8000
+```
+
+Luego abre en el navegador: `http://localhost:8000/index.php?rol=estudiante`
+
+Opción 2: XAMPP con Apache. Copia la carpeta del proyecto a `C:\xampp\htdocs\` y abre `http://localhost/proyecto-semestral-equipo2/index.php?rol=estudiante`
+
+### Roles simulados
+
+El rol se pasa en la dirección con `?rol=`: `estudiante`, `docente`, `laboratorista` o `administrador`. El menú cambia según el rol. Si el valor no es válido, se usa `estudiante`.
+
+### Usuario de demostración
+
+Para probar el inicio de sesión:
+
+- Correo: `demo.estudiante@utp.ac.pa`
+- Contraseña: `Demo2026`
+- Rol: Estudiante
+
+## Estructura del proyecto
+
+```
+proyecto-semestral-equipo2/
+├── index.php
+├── login.php
+├── registro.php
+├── recuperar.php
+├── principal_formulario.php
+├── principal_listado.php
+├── principal_detalle.php
+├── secundaria_formulario.php
+├── panel.php
+├── perfil.php
+├── procesar_registro.php
+├── procesar_login.php
+├── procesar_principal.php
+├── procesar_secundaria.php
+├── includes/
+│   ├── encabezado.php
+│   ├── menu.php
+│   ├── pie.php
+│   └── funciones.php
+├── config/
+│   └── datos_demo.php
+├── css/
+├── img/
+└── docs/
+```
 
 ## Páginas
 
-| Archivo | Pantalla | Rol |
-|---------|----------|-----|
-| `index.html` | Inicio con accesos por rol y reglas de préstamo | Todos |
-| `login.html` | Inicio de sesión (formulario 1) | Todos |
-| `registro.html` | Registro de estudiante (formulario 2) | Estudiante |
-| `recuperar.html` | Recuperación de contraseña (formulario 3) | Todos |
-| `principal-formulario.html` | Crear / modificar préstamo (formulario 4, entidad principal) | Estudiante, laboratorista |
-| `principal-listado.html` | Listado de préstamos con búsqueda y filtros (tabla 1) | Laboratorista |
-| `principal-detalle.html` | Detalle, registrar devolución, modificar y eliminar | Laboratorista |
-| `secundaria-formulario.html` | Crear y listar equipos (formulario 5 y tabla 2, segunda entidad) | Administrador |
-| `panel.html` | Resumen, estudiantes con préstamos (tabla 3) y parámetros de la regla | Administrador |
-| `perfil.html` | Datos del estudiante y préstamos activos | Estudiante |
+| Archivo | Pantalla | Roles |
+|---------|----------|-------|
+| `index.php` | Inicio con accesos por rol y reglas de préstamo | Todos |
+| `login.php` | Inicio de sesión | Todos |
+| `registro.php` | Registro de estudiante | Estudiante |
+| `recuperar.php` | Recuperación de contraseña | Todos |
+| `principal_formulario.php` | Solicitar préstamo | Estudiante, docente, laboratorista |
+| `principal_listado.php` | Listado de préstamos con búsqueda, filtros y paginación | Docente, laboratorista |
+| `principal_detalle.php` | Detalle del préstamo | Laboratorista |
+| `secundaria_formulario.php` | Registro y listado de equipos | Administrador |
+| `panel.php` | Panel de administración | Administrador |
+| `perfil.php` | Perfil del estudiante | Estudiante |
 
-## Cumplimiento técnico
+Las pantallas de recuperación, detalle, panel y perfil todavía muestran datos de la maqueta. Los datos dinámicos llegan en las siguientes partes del hito.
 
-- Estructura base en las 10 páginas: `<!DOCTYPE html>`, `lang="es"`, `charset`, `viewport`, `<title>` único y `meta description`.
-- Semántica: `header`, `nav`, `main`, `section`, `article`, `aside`, `footer`; un solo `h1` por página y niveles en orden.
-- Texto: `ul`, `ol`, `dl`, `figure`/`figcaption`, `strong`, `em`, `time`, `abbr`, `code`, `meter`.
-- Tablas: 3 tablas con `caption`, `thead`, `tbody`, `th scope="col"` y `th scope="row"`; la de préstamos tiene `tfoot`.
-- Imágenes SVG con `alt`, `width` y `height` en `img/`.
-- Formularios: `method="post"`, `action="#"`, `label for`/`id` en cada campo, `fieldset`/`legend` y atributos `required`, `placeholder`, `minlength`, `maxlength`, `pattern`, `min`, `max`, `step`, `autocomplete` y `name`. 13 tipos de entrada: `text`, `email`, `password`, `tel`, `date`, `time`, `datetime-local`, `number`, `search`, `url`, `file`, `checkbox`, `radio`.
-- Los `name` serán columnas en el Hito #3: `codigo_inventario`, `cedula_estudiante`, `fecha_prestamo`, `fecha_devolucion`, `id_laboratorio`, `tipo_item`…
-- CSS: una hoja externa `css/estilos.css`, sin estilos en línea. Selector universal (`*`), de agrupación (`h1, h2, h3`), de clase (`.eq02-boton`) y de id (`#eq02-encabezado`), Flexbox, Grid y `@media (max-width: 760px)` para móvil.
-- Navegación: el menú del encabezado y el mapa del sitio del pie enlazan las 10 páginas desde cualquier página.
+## Formularios y procesamiento
 
-## Validación W3C
+| Formulario | Método | Script | Qué valida |
+|------------|--------|--------|------------|
+| Registro de estudiante | POST | `procesar_registro.php` | Campos obligatorios, cédula, correo institucional, teléfono, carrera de lista blanca, contraseña con `password_hash()` |
+| Inicio de sesión | POST | `procesar_login.php` | Correo institucional, contraseña verificada con `password_verify()`, rol de lista blanca |
+| Solicitar préstamo | POST | `procesar_principal.php` | Cédula, código de inventario, equipo en reparación, préstamo vencido, límite de equipos, fechas y hora |
+| Registro de equipo | POST | `procesar_secundaria.php` | Código único, categoría de lista blanca, fecha de adquisición, enlace al manual |
+| Búsqueda de préstamos | GET | `principal_listado.php` | Estudiante o código de inventario |
+| Filtro de préstamos | GET | `principal_listado.php` | Estado y rango de fechas |
+| Paginación | GET | `principal_listado.php?pagina=N` | 5 préstamos por página; números inválidos o fuera de rango caen en una página válida |
 
-Resultado del 19/10/2026 con el Nu HTML Checker y el CSS Validation Service (perfil CSS3):
+## Datos de demostración
 
-| Archivo | Errores | Advertencias |
-|---------|---------|--------------|
-| index.html | 0 | 0 |
-| login.html | 0 | 0 |
-| registro.html | 0 | 0 |
-| recuperar.html | 0 | 0 |
-| principal-formulario.html | 0 | 0 |
-| principal-listado.html | 0 | 0 |
-| principal-detalle.html | 0 | 0 |
-| secundaria-formulario.html | 0 | 0 |
-| panel.html | 0 | 0 |
-| perfil.html | 0 | 0 |
-| css/estilos.css | 0 | 0 |
+`config/datos_demo.php` contiene los equipos, los préstamos y los parámetros de la regla. Incluye las tres semillas dictadas en clase y el equipo `RED-40130` (Router 1941) en reparación. Mientras no haya base de datos, es la única fuente de datos.
 
-### Capturas del validador
+## Reglas de préstamo
 
-**CSS** (`css/estilos.css`, perfil CSS3)
+- Máximo 3 equipos prestados a la vez. Un kit cuenta como 1; los cables y accesorios no cuentan.
+- Cada préstamo dura máximo 3 días.
+- Quien tenga un préstamo vencido no puede solicitar otro hasta devolverlo.
+- `RED-40130` (Router 1941) está en reparación: no se puede solicitar y el sistema responde "Equipo no disponible".
 
-![Validación CSS de estilos.css sin errores](docs/capturas_w3c/css-estilos.png)
+El límite de equipos se cuenta con los préstamos que tienen correo en `config/datos_demo.php`.
 
-**HTML** (cada página en el modo de entrada de texto del Nu HTML Checker)
+## Seguridad
 
-| Página | Captura |
-|--------|---------|
-| index.html | ![Validación de index.html sin errores](docs/capturas_w3c/index.png) |
-| login.html | ![Validación de login.html sin errores](docs/capturas_w3c/login.png) |
-| registro.html | ![Validación de registro.html sin errores](docs/capturas_w3c/registro.png) |
-| recuperar.html | ![Validación de recuperar.html sin errores](docs/capturas_w3c/recuperar.png) |
-| principal-formulario.html | ![Validación de principal-formulario.html sin errores](docs/capturas_w3c/principal-formulario.png) |
-| principal-listado.html | ![Validación de principal-listado.html sin errores](docs/capturas_w3c/principal-listado.png) |
-| principal-detalle.html | ![Validación de principal-detalle.html sin errores](docs/capturas_w3c/principal-detalle.png) |
-| secundaria-formulario.html | ![Validación de secundaria-formulario.html sin errores](docs/capturas_w3c/secundaria-formulario.png) |
-| panel.html | ![Validación de panel.html sin errores](docs/capturas_w3c/panel.png) |
-| perfil.html | ![Validación de perfil.html sin errores](docs/capturas_w3c/perfil.png) |
+- Toda salida en pantalla pasa por `escapar()`, que usa `htmlspecialchars()`.
+- Las contraseñas se guardan solo como hash con `password_hash()` y se verifican con `password_verify()`. Nunca se muestran.
+- Los archivos de `includes/` tienen una guarda: si se abren directamente, muestran "Acceso denegado".
+- Todos los campos se validan en el servidor. Los `select` se validan contra listas blancas.
+
+## Funciones propias
+
+En `includes/funciones.php`: `limpiar()`, `escapar()`, `redirigir()`, `obtener_rol()`, `formatear_fecha()` y `mostrar_errores()`.
 
 ## Documentos
 
-- `docs/propuesta.pdf`: propuesta del sistema (problema, roles y permisos, historias de usuario, requerimientos, entidades, benchmark, OWASP y plan de trabajo).
-- `docs/wireframes.pdf`: wireframes de las 10 pantallas, 4 versiones móviles, anotaciones y flujo de navegación por rol.
+- `docs/propuesta.pdf`: propuesta del sistema.
+- `docs/wireframes.pdf`: wireframes de las 10 pantallas, versiones móviles y flujo por rol.
 - `docs/guia_estilo.pdf`: paleta, tipografías, componentes y contraste.
 - `docs/matriz_responsabilidades.pdf`: tareas con responsable, revisor, fecha y estado.
-- `docs/usabilidad.pdf`: resultados de la prueba de usabilidad del 20/10/2026 (3 personas, 3 tareas, 9 de 9 completadas) y los 2 cambios al diseño aplicados en teléfono y cédula. `docs/usabilidad.md` es la versión editable.
+- `docs/usabilidad.pdf`: resultados de la prueba de usabilidad del 20/10/2026.
 - `docs/bitacora.md`: bitácora de las sesiones de trabajo.
+- Pendientes para la entrega: `docs/plan_pruebas.pdf`, `docs/trazabilidad.pdf` e `docs/informe_hito2.pdf`.
+
+Las capturas de validación W3C del Hito #1 están en `docs/capturas_w3c/`.
 
 ## Declaración de herramientas
 
 - Editor: Visual Studio Code. Navegador: Google Chrome. Control de versiones: Git y GitHub.
+- Servidor local: XAMPP con PHP 8.2.12.
 - Validadores: W3C Nu HTML Checker y W3C CSS Validation Service.
-- Se uso Claude para tener una buena organizacion general y un progreso ordenado 
+- Se uso Claude para tener una buena organizacion general y un progreso ordenado.
