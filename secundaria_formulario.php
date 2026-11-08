@@ -1,5 +1,6 @@
 <?php
 define('APP_ACCESO', true);
+require_once 'config/datos_demo.php';
 $titulo = 'Registro de equipos';
 $descripcion = 'Registro y listado de los equipos del inventario del laboratorio con su código de inventario.';
 $pagina_actual = 'secundaria_formulario.php';
@@ -9,7 +10,7 @@ require_once 'includes/encabezado.php';
     <div class="eq02-dos-columnas">
       <section class="eq02-formulario">
         <h2>Registrar equipo</h2>
-        <form action="#" method="post" enctype="multipart/form-data">
+        <form action="procesar_secundaria.php" method="post" enctype="multipart/form-data">
           <p class="eq02-nota">Los campos marcados con <span class="eq02-obligatorio">*</span> son obligatorios.</p>
           <fieldset>
             <legend>Identificación</legend>
@@ -86,10 +87,10 @@ require_once 'includes/encabezado.php';
 
     <section>
       <h2>Listado de equipos</h2>
-      <p class="eq02-nota">Datos de demostración al 19/10/2026.</p>
+      <p class="eq02-nota">Datos de demostración del inventario.</p>
       <div class="eq02-tabla-contenedor">
         <table>
-          <caption>Equipos registrados en el inventario (5)</caption>
+          <caption>Equipos registrados en el inventario (<?= count($equipos) ?>)</caption>
           <thead>
             <tr>
               <th scope="col">Código</th>
@@ -99,36 +100,25 @@ require_once 'includes/encabezado.php';
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">ELE-00045</th>
-              <td>Osciloscopio Rigol DS1054Z</td>
-              <td>Electrónica</td>
-              <td>No (préstamo vencido, sin devolver)</td>
-            </tr>
-            <tr>
-              <th scope="row">MED-00012</th>
-              <td>Multímetro Fluke 117</td>
-              <td>Medición</td>
-              <td>No (prestado)</td>
-            </tr>
-            <tr>
-              <th scope="row">MED-00020</th>
-              <td>Multímetro UNI-T UT33D</td>
-              <td>Medición</td>
-              <td>No (prestado)</td>
-            </tr>
-            <tr>
-              <th scope="row">KIT-00007</th>
-              <td>Kit Arduino Uno</td>
-              <td>Kit</td>
-              <td>No (prestado)</td>
-            </tr>
-            <tr>
-              <th scope="row">RED-00123</th>
-              <td>Router Cisco 1941</td>
-              <td>Redes</td>
-              <td>Sí</td>
-            </tr>
+            <?php foreach ($equipos as $codigo => $e): ?>
+              <?php
+                $disponible = 'Sí';
+                if ($e['en_reparacion']) {
+                    $disponible = 'No (en reparación)';
+                }
+                foreach ($prestamos as $p) {
+                    if ($p['codigo'] === $codigo && $p['estado'] !== 'Devuelto') {
+                        $disponible = 'No (prestado)';
+                    }
+                }
+              ?>
+              <tr>
+                <th scope="row"><?= escapar($codigo) ?></th>
+                <td><?= escapar($e['nombre']) ?></td>
+                <td><?= escapar($e['categoria']) ?></td>
+                <td><?= escapar($disponible) ?></td>
+              </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>
