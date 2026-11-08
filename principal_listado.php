@@ -1,29 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Listado de préstamos de equipos del laboratorio con búsqueda por estudiante o código y filtros por estado.">
-  <title>Listado de préstamos · SIGEL</title>
-  <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-  <header id="eq02-encabezado">
-    <a href="index.html" class="eq02-marca"><img src="img/logo.svg" alt="Logotipo de SIGEL: matraz de laboratorio" width="40" height="40"> SIGEL</a>
-    <nav class="eq02-menu" aria-label="Menú principal">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
-        <li><a href="principal-listado.html" class="eq02-activo" aria-current="page">Préstamos</a></li>
-        <li><a href="secundaria-formulario.html">Equipos</a></li>
-        <li><a href="panel.html">Panel</a></li>
-        <li><a href="perfil.html">Mi perfil</a></li>
-        <li><a href="login.html">Iniciar sesión</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="eq02-principal">
+<?php
+define('APP_ACCESO', true);
+$titulo = 'Listado de préstamos';
+$descripcion = 'Listado de préstamos de equipos del laboratorio con búsqueda por estudiante o código y filtros por estado.';
+$pagina_actual = 'principal_listado.php';
+require_once 'includes/encabezado.php';
+?>
     <h1>Préstamos de equipos</h1>
     <section class="eq02-formulario">
       <h2>Buscar y filtrar</h2>
@@ -54,7 +35,7 @@
     <section>
       <h2>Resultados</h2>
       <p class="eq02-nota">Datos de demostración al 19/10/2026. En la maqueta la búsqueda y los filtros no cambian la tabla.</p>
-      <p class="eq02-acciones"><a href="principal-formulario.html" class="eq02-boton">Nuevo préstamo</a></p>
+      <p class="eq02-acciones"><a href="principal_formulario.php" class="eq02-boton">Nuevo préstamo</a></p>
       <div class="eq02-tabla-contenedor">
         <table>
           <caption>Préstamos registrados en octubre de 2026 (5)</caption>
@@ -77,7 +58,7 @@
               <td><time datetime="2026-10-13">13/10/2026</time></td>
               <td><time datetime="2026-10-16">16/10/2026</time></td>
               <td><span class="eq02-estado eq02-estado-vencido">Vencido</span></td>
-              <td><a href="principal-detalle.html#eq02-prestamo-ele-00045" aria-label="Ver detalle del préstamo ELE-00045">Ver detalle</a></td>
+              <td><a href="principal_detalle.php#eq02-prestamo-ele-00045" aria-label="Ver detalle del préstamo ELE-00045">Ver detalle</a></td>
             </tr>
             <tr>
               <th scope="row">MED-00012</th>
@@ -86,7 +67,7 @@
               <td><time datetime="2026-10-18">18/10/2026</time></td>
               <td><time datetime="2026-10-21">21/10/2026</time></td>
               <td><span class="eq02-estado">Activo</span></td>
-              <td><a href="principal-detalle.html#eq02-prestamo-med-00012" aria-label="Ver detalle del préstamo MED-00012">Ver detalle</a></td>
+              <td><a href="principal_detalle.php#eq02-prestamo-med-00012" aria-label="Ver detalle del préstamo MED-00012">Ver detalle</a></td>
             </tr>
             <tr>
               <th scope="row">KIT-00007</th>
@@ -95,7 +76,7 @@
               <td><time datetime="2026-10-19">19/10/2026</time></td>
               <td><time datetime="2026-10-22">22/10/2026</time></td>
               <td><span class="eq02-estado">Activo</span></td>
-              <td><a href="principal-detalle.html#eq02-prestamo-kit-00007" aria-label="Ver detalle del préstamo KIT-00007">Ver detalle</a></td>
+              <td><a href="principal_detalle.php#eq02-prestamo-kit-00007" aria-label="Ver detalle del préstamo KIT-00007">Ver detalle</a></td>
             </tr>
             <tr>
               <th scope="row">MED-00020</th>
@@ -104,7 +85,7 @@
               <td><time datetime="2026-10-18">18/10/2026</time></td>
               <td><time datetime="2026-10-21">21/10/2026</time></td>
               <td><span class="eq02-estado">Activo</span></td>
-              <td><a href="principal-detalle.html#eq02-prestamo-med-00020" aria-label="Ver detalle del préstamo MED-00020">Ver detalle</a></td>
+              <td><a href="principal_detalle.php#eq02-prestamo-med-00020" aria-label="Ver detalle del préstamo MED-00020">Ver detalle</a></td>
             </tr>
             <tr>
               <th scope="row">RED-00123</th>
@@ -113,7 +94,7 @@
               <td><time datetime="2026-10-09">09/10/2026</time></td>
               <td><time datetime="2026-10-12">12/10/2026</time></td>
               <td><span class="eq02-estado eq02-estado-devuelto">Devuelto</span></td>
-              <td><a href="principal-detalle.html#eq02-prestamo-red-00123" aria-label="Ver detalle del préstamo RED-00123">Ver detalle</a></td>
+              <td><a href="principal_detalle.php#eq02-prestamo-red-00123" aria-label="Ver detalle del préstamo RED-00123">Ver detalle</a></td>
             </tr>
           </tbody>
           <tfoot>
@@ -124,25 +105,4 @@
         </table>
       </div>
     </section>
-  </main>
-
-  <footer id="eq02-pie" class="eq02-pie">
-    <nav aria-label="Mapa del sitio">
-      <h2>Mapa del sitio</h2>
-      <ul class="eq02-mapa">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="login.html">Iniciar sesión</a></li>
-        <li><a href="registro.html">Registro</a></li>
-        <li><a href="recuperar.html">Recuperar contraseña</a></li>
-        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
-        <li><a href="principal-listado.html">Listado de préstamos</a></li>
-        <li><a href="principal-detalle.html">Detalle del préstamo</a></li>
-        <li><a href="secundaria-formulario.html">Registro de equipos</a></li>
-        <li><a href="panel.html">Panel de administración</a></li>
-        <li><a href="perfil.html">Mi perfil</a></li>
-      </ul>
-    </nav>
-    <p><small>&copy; 2026 SIGEL · Equipo 02 · Ariel Jimenez y Alejandro Saenz · Desarrollo Web</small></p>
-  </footer>
-</body>
-</html>
+<?php require_once 'includes/pie.php'; ?>
