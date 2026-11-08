@@ -13,10 +13,10 @@ $menu = [
 ?>
 <nav class="eq02-menu" aria-label="Menú principal">
   <ul>
-    <?php foreach ($menu as $pagina => $item): ?>
+    <?php foreach ($menu as $ruta => $item): ?>
       <?php if (in_array($rol, $item['roles'], true)): ?>
-        <?php $activo = (isset($pagina_actual) && $pagina_actual === $pagina); ?>
-        <li><a href="<?= escapar($pagina) ?>?rol=<?= escapar($rol) ?>"<?= $activo ? ' class="eq02-activo" aria-current="page"' : '' ?>><?= escapar($item['texto']) ?></a></li>
+        <?php $activo = (isset($pagina_actual) && $pagina_actual === $ruta); ?>
+        <li><a href="<?= escapar($ruta) ?>?rol=<?= escapar($rol) ?>"<?= $activo ? ' class="eq02-activo" aria-current="page"' : '' ?>><?= escapar($item['texto']) ?></a></li>
       <?php endif; ?>
     <?php endforeach; ?>
   </ul>

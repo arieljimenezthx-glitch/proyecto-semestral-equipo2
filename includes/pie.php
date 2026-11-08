@@ -20,8 +20,8 @@ $paginas = [
     <nav aria-label="Mapa del sitio">
       <h2>Mapa del sitio</h2>
       <ul class="eq02-mapa">
-        <?php foreach ($paginas as $pagina => $texto): ?>
-          <li><a href="<?= escapar($pagina) ?>?rol=<?= escapar($rol) ?>"><?= escapar($texto) ?></a></li>
+        <?php foreach ($paginas as $ruta => $texto): ?>
+          <li><a href="<?= escapar($ruta) ?>?rol=<?= escapar($rol) ?>"><?= escapar($texto) ?></a></li>
         <?php endforeach; ?>
       </ul>
     </nav>
