@@ -1,29 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Panel de administración de SIGEL con resumen de préstamos, parámetros de la regla de préstamo y estudiantes.">
-  <title>Panel de administración · SIGEL</title>
-  <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-  <header id="eq02-encabezado">
-    <a href="index.html" class="eq02-marca"><img src="img/logo.svg" alt="Logotipo de SIGEL: matraz de laboratorio" width="40" height="40"> SIGEL</a>
-    <nav class="eq02-menu" aria-label="Menú principal">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
-        <li><a href="principal-listado.html">Préstamos</a></li>
-        <li><a href="secundaria-formulario.html">Equipos</a></li>
-        <li><a href="panel.html" class="eq02-activo" aria-current="page">Panel</a></li>
-        <li><a href="perfil.html">Mi perfil</a></li>
-        <li><a href="login.html">Iniciar sesión</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="eq02-principal">
+<?php
+define('APP_ACCESO', true);
+$titulo = 'Panel de administración';
+$descripcion = 'Panel de administración de SIGEL con resumen de préstamos, parámetros de la regla de préstamo y estudiantes.';
+$pagina_actual = 'panel.php';
+require_once 'includes/encabezado.php';
+?>
     <h1>Panel de administración</h1>
     <section>
       <h2>Resumen de hoy</h2>
@@ -32,17 +13,17 @@
         <article class="eq02-tarjeta">
           <h3>Equipos fuera</h3>
           <p><strong>4</strong> equipos fuera del laboratorio: 3 dentro del plazo y 1 vencido sin devolver.</p>
-          <a href="principal-listado.html">Ver préstamos</a>
+          <a href="principal_listado.php">Ver préstamos</a>
         </article>
         <article class="eq02-tarjeta">
           <h3>Vencidos</h3>
           <p><strong>1</strong> préstamo pasó su fecha de devolución.</p>
-          <a href="principal-detalle.html#eq02-prestamo-ele-00045">Ver el préstamo vencido</a>
+          <a href="principal_detalle.php#eq02-prestamo-ele-00045">Ver el préstamo vencido</a>
         </article>
         <article class="eq02-tarjeta">
           <h3>Inventario</h3>
           <p><strong>5</strong> equipos registrados; 1 disponible para préstamo.</p>
-          <a href="secundaria-formulario.html">Gestionar equipos</a>
+          <a href="secundaria_formulario.php">Gestionar equipos</a>
         </article>
       </div>
     </section>
@@ -108,25 +89,4 @@
         </form>
       </section>
     </div>
-  </main>
-
-  <footer id="eq02-pie" class="eq02-pie">
-    <nav aria-label="Mapa del sitio">
-      <h2>Mapa del sitio</h2>
-      <ul class="eq02-mapa">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="login.html">Iniciar sesión</a></li>
-        <li><a href="registro.html">Registro</a></li>
-        <li><a href="recuperar.html">Recuperar contraseña</a></li>
-        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
-        <li><a href="principal-listado.html">Listado de préstamos</a></li>
-        <li><a href="principal-detalle.html">Detalle del préstamo</a></li>
-        <li><a href="secundaria-formulario.html">Registro de equipos</a></li>
-        <li><a href="panel.html">Panel de administración</a></li>
-        <li><a href="perfil.html">Mi perfil</a></li>
-      </ul>
-    </nav>
-    <p><small>&copy; 2026 SIGEL · Equipo 02 · Ariel Jimenez y Alejandro Saenz · Desarrollo Web</small></p>
-  </footer>
-</body>
-</html>
+<?php require_once 'includes/pie.php'; ?>
