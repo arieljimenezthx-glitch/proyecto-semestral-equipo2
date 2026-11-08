@@ -1,29 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Inicio de sesión en SIGEL para estudiantes, laboratoristas y administradores del laboratorio.">
-  <title>Iniciar sesión · SIGEL</title>
-  <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-  <header id="eq02-encabezado">
-    <a href="index.html" class="eq02-marca"><img src="img/logo.svg" alt="Logotipo de SIGEL: matraz de laboratorio" width="40" height="40"> SIGEL</a>
-    <nav class="eq02-menu" aria-label="Menú principal">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
-        <li><a href="principal-listado.html">Préstamos</a></li>
-        <li><a href="secundaria-formulario.html">Equipos</a></li>
-        <li><a href="panel.html">Panel</a></li>
-        <li><a href="perfil.html">Mi perfil</a></li>
-        <li><a href="login.html" class="eq02-activo" aria-current="page">Iniciar sesión</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="eq02-principal">
+<?php
+define('APP_ACCESO', true);
+$titulo = 'Iniciar sesión';
+$descripcion = 'Inicio de sesión en SIGEL para estudiantes, laboratoristas y administradores del laboratorio.';
+$pagina_actual = 'login.php';
+require_once 'includes/encabezado.php';
+?>
     <div class="eq02-dos-columnas">
       <section class="eq02-formulario">
         <h1>Iniciar sesión</h1>
@@ -57,34 +38,13 @@
           </fieldset>
           <button type="submit" class="eq02-boton">Entrar</button>
         </form>
-        <p><a href="recuperar.html">¿Olvidaste tu contraseña?</a></p>
+        <p><a href="recuperar.php">¿Olvidaste tu contraseña?</a></p>
       </section>
       <aside class="eq02-aside">
         <h2>¿Primera vez?</h2>
         <p>Los estudiantes de la UTP crean su cuenta con su cédula y correo institucional.</p>
-        <p><a href="registro.html" class="eq02-boton eq02-boton-secundario">Crear cuenta</a></p>
+        <p><a href="registro.php" class="eq02-boton eq02-boton-secundario">Crear cuenta</a></p>
         <p class="eq02-nota">Las cuentas de laboratorista y administrador las crea el administrador del sistema.</p>
       </aside>
     </div>
-  </main>
-
-  <footer id="eq02-pie" class="eq02-pie">
-    <nav aria-label="Mapa del sitio">
-      <h2>Mapa del sitio</h2>
-      <ul class="eq02-mapa">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="login.html">Iniciar sesión</a></li>
-        <li><a href="registro.html">Registro</a></li>
-        <li><a href="recuperar.html">Recuperar contraseña</a></li>
-        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
-        <li><a href="principal-listado.html">Listado de préstamos</a></li>
-        <li><a href="principal-detalle.html">Detalle del préstamo</a></li>
-        <li><a href="secundaria-formulario.html">Registro de equipos</a></li>
-        <li><a href="panel.html">Panel de administración</a></li>
-        <li><a href="perfil.html">Mi perfil</a></li>
-      </ul>
-    </nav>
-    <p><small>&copy; 2026 SIGEL · Equipo 02 · Ariel Jimenez y Alejandro Saenz · Desarrollo Web</small></p>
-  </footer>
-</body>
-</html>
+<?php require_once 'includes/pie.php'; ?>
