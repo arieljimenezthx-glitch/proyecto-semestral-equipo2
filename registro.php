@@ -9,7 +9,7 @@ require_once 'includes/encabezado.php';
       <h1>Crear cuenta de estudiante</h1>
       <p><strong>Registro exclusivo para estudiantes de la UTP.</strong> Tus datos se usarán para identificarte al retirar un equipo.</p>
       <p class="eq02-nota">Las cuentas de laboratorista y administrador no se crean aquí: las crea el administrador del sistema.</p>
-      <form action="#" method="post">
+      <form action="procesar_registro.php" method="post">
         <p class="eq02-nota">Los campos marcados con <span class="eq02-obligatorio">*</span> son obligatorios.</p>
         <fieldset>
           <legend>Datos personales</legend>

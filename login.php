@@ -8,7 +8,7 @@ require_once 'includes/encabezado.php';
     <div class="eq02-dos-columnas">
       <section class="eq02-formulario">
         <h1>Iniciar sesión</h1>
-        <form action="#" method="post">
+        <form action="procesar_login.php" method="post">
           <p class="eq02-nota">Los campos marcados con <span class="eq02-obligatorio">*</span> son obligatorios.</p>
           <fieldset>
             <legend>Datos de acceso</legend>
