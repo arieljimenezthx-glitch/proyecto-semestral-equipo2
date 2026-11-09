@@ -1,6 +1,7 @@
 <?php
 define('APP_ACCESO', true);
 require_once 'includes/funciones.php';
+require_once 'clases/Usuario.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirigir('login.php');
@@ -10,7 +11,7 @@ $correo = (isset($_POST['correo']) && is_string($_POST['correo'])) ? limpiar($_P
 $contrasena = (isset($_POST['contrasena']) && is_string($_POST['contrasena'])) ? $_POST['contrasena'] : '';
 $rol = (isset($_POST['rol']) && is_string($_POST['rol'])) ? limpiar($_POST['rol']) : '';
 
-$usuarios = [
+$cuentas = [
     'demo.estudiante@utp.ac.pa' => [
         'hash' => '$2y$10$xfdI1ey/os8Rs6c76ZKEy.UlIVUJl7Ug2PGqRyBRdVFwRyA/3dIaa',
         'rol' => 'estudiante',
@@ -30,10 +31,15 @@ if (!in_array($rol, ['estudiante', 'laboratorista', 'administrador'], true)) {
 }
 
 if (count($errores) === 0) {
-    if (!isset($usuarios[$correo]) || !password_verify($contrasena, $usuarios[$correo]['hash'])) {
+    if (!isset($cuentas[$correo])) {
         $errores[] = 'Correo o contraseña incorrectos.';
-    } elseif ($usuarios[$correo]['rol'] !== $rol) {
-        $errores[] = 'El rol elegido no corresponde a tu cuenta.';
+    } else {
+        $usuario = new Usuario($correo, $cuentas[$correo]['rol'], $cuentas[$correo]['hash']);
+        if (!$usuario->verificarContrasena($contrasena)) {
+            $errores[] = 'Correo o contraseña incorrectos.';
+        } elseif ($usuario->getRol() !== $rol) {
+            $errores[] = 'El rol elegido no corresponde a tu cuenta.';
+        }
     }
 }
 
