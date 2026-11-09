@@ -1,5 +1,6 @@
 <?php
 define('APP_ACCESO', true);
+require_once 'config/datos_demo.php';
 $titulo = 'Solicitar préstamo';
 $descripcion = 'Formulario para crear o modificar un préstamo de equipo del laboratorio con su código de inventario.';
 $pagina_actual = 'principal_formulario.php';
@@ -28,9 +29,13 @@ require_once 'includes/encabezado.php';
           <fieldset id="eq02-bloque-equipo">
             <legend>Equipo solicitado</legend>
             <div class="eq02-campo">
-              <label for="codigo_inventario">Código de inventario del equipo <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-              <input type="text" id="codigo_inventario" name="codigo_inventario" required pattern="[A-Z]{3}-[0-9]{5}" minlength="9" maxlength="9" autocomplete="off" placeholder="RED-00123" aria-describedby="eq02-ayuda-codigo-inventario">
-              <span class="eq02-ayuda" id="eq02-ayuda-codigo-inventario">3 letras mayúsculas, guion y 5 números (ej. <code>ELE-00045</code>).</span>
+              <label for="codigo_inventario">Equipo <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
+              <select id="codigo_inventario" name="codigo_inventario" required>
+                <option value="">Seleccione un equipo</option>
+<?php foreach ($equipos as $codigo => $e): ?>
+                <option value="<?= escapar($codigo) ?>"<?= $e['en_reparacion'] ? ' disabled' : '' ?>><?= escapar($codigo) ?> · <?= escapar($e['nombre']) ?><?= $e['en_reparacion'] ? ' (en reparación)' : '' ?></option>
+<?php endforeach; ?>
+              </select>
             </div>
             <fieldset class="eq02-grupo">
               <legend>Tipo de ítem <span class="eq02-obligatorio" aria-hidden="true">*</span></legend>

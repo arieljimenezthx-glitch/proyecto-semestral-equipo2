@@ -12,7 +12,6 @@ $correo = (isset($_POST['correo_estudiante']) && is_string($_POST['correo_estudi
 $codigo = (isset($_POST['codigo_inventario']) && is_string($_POST['codigo_inventario'])) ? limpiar($_POST['codigo_inventario']) : '';
 $tipo = (isset($_POST['tipo_item']) && is_string($_POST['tipo_item'])) ? limpiar($_POST['tipo_item']) : '';
 $fecha_prestamo = (isset($_POST['fecha_prestamo']) && is_string($_POST['fecha_prestamo'])) ? limpiar($_POST['fecha_prestamo']) : '';
-$hora_retiro = (isset($_POST['hora_retiro']) && is_string($_POST['hora_retiro'])) ? limpiar($_POST['hora_retiro']) : '';
 $fecha_devolucion = (isset($_POST['fecha_devolucion']) && is_string($_POST['fecha_devolucion'])) ? limpiar($_POST['fecha_devolucion']) : '';
 $accesorios = (isset($_POST['cantidad_accesorios']) && is_string($_POST['cantidad_accesorios'])) ? limpiar($_POST['cantidad_accesorios']) : '';
 $motivo = (isset($_POST['motivo']) && is_string($_POST['motivo'])) ? limpiar($_POST['motivo']) : '';
@@ -38,9 +37,6 @@ if (!preg_match('/^[A-Z]{3}-[0-9]{5}$/', $codigo)) {
 }
 if ($tipo !== 'equipo' && $tipo !== 'kit') {
     $errores[] = 'Indica si el ítem es equipo o kit.';
-}
-if (!preg_match('/^[0-2][0-9]:[0-5][0-9]$/', $hora_retiro) || $hora_retiro < '08:00' || $hora_retiro > '20:00') {
-    $errores[] = 'La hora de retiro debe estar entre las 08:00 y las 20:00.';
 }
 
 $fechas_ok = preg_match('/^\d{4}-\d{2}-\d{2}$/', $fecha_prestamo) && preg_match('/^\d{4}-\d{2}-\d{2}$/', $fecha_devolucion);
