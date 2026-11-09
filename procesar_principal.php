@@ -44,8 +44,10 @@ if (!$fechas_ok) {
     $errores[] = 'Las fechas del préstamo no son válidas.';
 } else {
     $dias = (strtotime($fecha_devolucion) - strtotime($fecha_prestamo)) / 86400;
-    if ($dias < 1 || $dias > $parametros['max_dias']) {
-        $errores[] = 'La devolución debe ser de 1 a 3 días después del préstamo.';
+    if ($dias < 0) {
+        $errores[] = 'Las fechas del préstamo no son válidas: la devolución no puede ser anterior al préstamo.';
+    } elseif ($dias > $parametros['max_dias']) {
+        $errores[] = 'La devolución no puede ser más de ' . $parametros['max_dias'] . ' días después del préstamo.';
     }
 }
 
