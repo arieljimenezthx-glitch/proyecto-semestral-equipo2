@@ -18,8 +18,8 @@ $equipos = [
 $prestamos = [
     ['codigo' => 'ELE-00045', 'solicitante' => 'Luis Gómez', 'rol' => 'Estudiante', 'salida' => '2026-10-13', 'devolucion' => '2026-10-16', 'estado' => 'Vencido'],
     ['codigo' => 'MED-00012', 'solicitante' => 'Ana Torres', 'rol' => 'Estudiante', 'salida' => '2026-10-18', 'devolucion' => '2026-10-21', 'estado' => 'Activo'],
-    ['codigo' => 'KIT-00007', 'solicitante' => 'Ariel Jimenez', 'rol' => 'Estudiante', 'salida' => '2026-10-19', 'devolucion' => '2026-10-22', 'estado' => 'Activo'],
-    ['codigo' => 'MED-00020', 'solicitante' => 'Ariel Jimenez', 'rol' => 'Estudiante', 'salida' => '2026-10-18', 'devolucion' => '2026-10-21', 'estado' => 'Activo'],
+    ['codigo' => 'KIT-00007', 'solicitante' => 'Ariel Jimenez', 'correo' => 'ariel.jimenez@utp.ac.pa', 'rol' => 'Estudiante', 'salida' => '2026-10-19', 'devolucion' => '2026-10-22', 'estado' => 'Activo'],
+    ['codigo' => 'MED-00020', 'solicitante' => 'Ariel Jimenez', 'correo' => 'ariel.jimenez@utp.ac.pa', 'rol' => 'Estudiante', 'salida' => '2026-10-18', 'devolucion' => '2026-10-21', 'estado' => 'Activo'],
     ['codigo' => 'RED-00123', 'solicitante' => 'María Ríos', 'rol' => 'Estudiante', 'salida' => '2026-10-09', 'devolucion' => '2026-10-12', 'estado' => 'Devuelto'],
     ['codigo' => 'RED-40117', 'solicitante' => 'Nicolás Barría-Quintero', 'rol' => 'Estudiante', 'salida' => '2026-11-03', 'devolucion' => '2026-11-05', 'estado' => 'Activo'],
     ['codigo' => 'RED-40118', 'solicitante' => 'Prof. Iris Valdivieso', 'rol' => 'Docente', 'salida' => '2026-11-02', 'devolucion' => '2026-11-04', 'estado' => 'Devuelto'],

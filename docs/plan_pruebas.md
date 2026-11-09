@@ -19,6 +19,8 @@ Cada caso se prueba con el servidor local (`php -S localhost:8000` o XAMPP). La 
 | P-13 | Regla de negocio | Código repetido en equipos | Registrar equipo con código `RED-40130` | "Ya existe un equipo con ese código" | Pasa. "Ya existe un equipo con ese código." |
 | P-14 | Paginación | Página inválida | `principal_listado.php?pagina=-1` y `?pagina=999` | Sin error, cae en una página válida | Pasa. Con -1 muestra página 1 de 2 y con 999 muestra página 2 de 2. |
 | P-15 | Acceso | Rol que no corresponde | Iniciar sesión con `demo.estudiante@utp.ac.pa` y rol Laboratorista | "El rol elegido no corresponde a tu cuenta" | Pasa. "El rol elegido no corresponde a tu cuenta." |
+| P-16 | Acceso | Inicio de sesión correcto | Correo `demo.estudiante@utp.ac.pa`, contraseña `Demo2026`, rol Estudiante | Redirige a `index.php` con el rol Estudiante | Pasa. Redirige a la página de inicio con el menú de estudiante. Probado por Ariel en el navegador. |
+| P-17 | Regla de negocio | Solicitud con 2 equipos activos (límite de 3) | Correo `ariel.jimenez@utp.ac.pa`, equipo `RED-00123`, fechas 19/10/2026 y 21/10/2026, motivo válido | Se acepta el tercer equipo (2 de 3 activos) | Pasa. Se muestra "Préstamo registrado" con el lugar de retiro. Probado por Ariel en el navegador. |
 
 Notas:
 - Las pruebas de formulario se enviaron con los mismos campos del formulario (POST) desde el navegador.
