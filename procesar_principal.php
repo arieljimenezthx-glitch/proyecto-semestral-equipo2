@@ -34,6 +34,12 @@ if (!preg_match('/^[A-Z]{3}-[0-9]{5}$/', $codigo)) {
     $errores[] = 'El código de inventario no existe.';
 } elseif ($equipos[$codigo]['en_reparacion']) {
     $errores[] = 'Equipo no disponible.';
+} else {
+    foreach ($prestamos as $p) {
+        if ($p['codigo'] === $codigo && $p['estado'] !== 'Devuelto') {
+            $errores[] = 'Equipo no disponible: ya está prestado.';
+        }
+    }
 }
 if ($tipo !== 'equipo' && $tipo !== 'kit') {
     $errores[] = 'Indica si el ítem es equipo o kit.';

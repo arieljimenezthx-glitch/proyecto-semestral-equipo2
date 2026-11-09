@@ -78,10 +78,6 @@ require_once 'includes/encabezado.php';
           <li><code>KIT</code> kits</li>
           <li><code>COM</code> cómputo</li>
         </ul>
-        <figure>
-          <img src="img/multimetro.svg" alt="Ilustración de un multímetro digital" width="160" height="120">
-          <figcaption>Cada equipo lleva su código en una etiqueta.</figcaption>
-        </figure>
       </aside>
     </div>
 

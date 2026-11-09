@@ -33,7 +33,13 @@ require_once 'includes/encabezado.php';
               <select id="codigo_inventario" name="codigo_inventario" required>
                 <option value="">Seleccione un equipo</option>
 <?php foreach ($equipos as $codigo => $e): ?>
-                <option value="<?= escapar($codigo) ?>"><?= escapar($codigo) ?> · <?= escapar($e['nombre']) ?><?= $e['en_reparacion'] ? ' (en reparación)' : '' ?></option>
+<?php $prestado = false; ?>
+<?php foreach ($prestamos as $p): ?>
+<?php if ($p['codigo'] === $codigo && $p['estado'] !== 'Devuelto'): ?>
+<?php $prestado = true; ?>
+<?php endif; ?>
+<?php endforeach; ?>
+                <option value="<?= escapar($codigo) ?>"><?= escapar($codigo) ?> · <?= escapar($e['nombre']) ?><?= $e['en_reparacion'] ? ' (en reparación)' : ($prestado ? ' (prestado)' : '') ?></option>
 <?php endforeach; ?>
               </select>
             </div>

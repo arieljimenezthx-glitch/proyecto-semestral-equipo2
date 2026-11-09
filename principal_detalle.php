@@ -38,10 +38,6 @@ require_once 'includes/encabezado.php';
           <dd>Práctica 4 de Circuitos II.</dd>
         </dl>
         <div>
-          <figure>
-            <img src="img/osciloscopio.svg" alt="Ilustración de un osciloscopio digital con una señal en pantalla" width="160" height="120">
-            <figcaption>Osciloscopio <abbr title="Rigol Technologies">Rigol</abbr> DS1054Z.</figcaption>
-          </figure>
           <h3>Registrar devolución</h3>
           <form action="#" method="post">
             <input type="hidden" name="id_prestamo" value="45">
