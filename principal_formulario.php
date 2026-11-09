@@ -60,10 +60,6 @@ require_once 'includes/encabezado.php';
                 <span class="eq02-ayuda" id="eq02-ayuda-fecha-prestamo">En este ejemplo el préstamo sale el 19/10/2026.</span>
               </div>
               <div class="eq02-campo">
-                <label for="hora_retiro">Hora de retiro <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-                <input type="time" id="hora_retiro" name="hora_retiro" required min="08:00" max="20:00" step="900">
-              </div>
-              <div class="eq02-campo">
                 <label for="fecha_devolucion">Fecha de devolución <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
                 <input type="date" id="fecha_devolucion" name="fecha_devolucion" required min="2026-10-19" max="2026-10-22" aria-describedby="eq02-ayuda-fecha-devolucion">
                 <span class="eq02-ayuda" id="eq02-ayuda-fecha-devolucion">Máximo 3 días: en este ejemplo, del 19/10/2026 al 22/10/2026. En la maqueta el rango es fijo; el sistema final lo calculará desde la fecha de préstamo.</span>

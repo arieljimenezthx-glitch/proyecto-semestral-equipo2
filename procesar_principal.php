@@ -91,7 +91,7 @@ require_once 'includes/encabezado.php';
         <li>Equipo: <?= escapar($codigo) ?> (<?= escapar($equipos[$codigo]['nombre']) ?>)</li>
         <li>Lugar de retiro: <?= escapar($equipos[$codigo]['lugar']) ?></li>
         <li>Estudiante: <?= escapar($correo) ?></li>
-        <li>Préstamo: <?= escapar(formatear_fecha($fecha_prestamo)) ?> a las <?= escapar($hora_retiro) ?></li>
+        <li>Préstamo: <?= escapar(formatear_fecha($fecha_prestamo)) ?></li>
         <li>Devolución: <?= escapar(formatear_fecha($fecha_devolucion)) ?></li>
         <li>Accesorios: <?= escapar($accesorios) ?></li>
       </ul>
