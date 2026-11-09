@@ -73,7 +73,14 @@ proyecto-semestral-equipo2/
 │   ├── encabezado.php
 │   ├── menu.php
 │   ├── pie.php
-│   └── funciones.php
+│   ├── funciones.php
+│   └── .htaccess
+├── clases/
+│   ├── Validador.php
+│   ├── Usuario.php
+│   ├── Prestamo.php
+│   ├── Equipo.php
+│   └── .htaccess
 ├── config/
 │   └── datos_demo.php
 ├── css/
@@ -88,51 +95,61 @@ proyecto-semestral-equipo2/
 | `index.php` | Inicio con accesos por rol y reglas de préstamo | Todos |
 | `login.php` | Inicio de sesión | Todos |
 | `registro.php` | Registro de estudiante | Estudiante |
-| `recuperar.php` | Recuperación de contraseña | Todos |
+| `recuperar.php` | Recuperación de contraseña (maqueta) | Todos |
 | `principal_formulario.php` | Solicitar préstamo | Estudiante, docente, laboratorista |
 | `principal_listado.php` | Listado de préstamos con búsqueda, filtros y paginación | Docente, laboratorista |
-| `principal_detalle.php` | Detalle del préstamo | Laboratorista |
+| `principal_detalle.php` | Detalle del préstamo (maqueta) | Laboratorista |
 | `secundaria_formulario.php` | Registro y listado de equipos | Administrador |
-| `panel.php` | Panel de administración | Administrador |
-| `perfil.php` | Perfil del estudiante | Estudiante |
+| `panel.php` | Panel de administración con resumen calculado desde los datos | Administrador |
+| `perfil.php` | Perfil del estudiante (maqueta) | Estudiante |
 
-Las pantallas de recuperación, detalle, panel y perfil todavía muestran datos de la maqueta. Los datos dinámicos llegan en las siguientes partes del hito.
+Las pantallas de recuperación, detalle y perfil todavía muestran datos de la maqueta. Los datos dinámicos llegan en las siguientes partes del hito.
 
 ## Formularios y procesamiento
 
 | Formulario | Método | Script | Qué valida |
 |------------|--------|--------|------------|
-| Registro de estudiante | POST | `procesar_registro.php` | Campos obligatorios, cédula, correo institucional, teléfono, carrera de lista blanca, contraseña con `password_hash()` |
+| Registro de estudiante | POST | `procesar_registro.php` | Campos obligatorios, cédula, correo institucional, teléfono, carrera de lista blanca, fecha de nacimiento en dd/mm/aaaa, contraseña con `password_hash()` |
 | Inicio de sesión | POST | `procesar_login.php` | Correo institucional, contraseña verificada con `password_verify()`, rol de lista blanca |
-| Solicitar préstamo | POST | `procesar_principal.php` | Cédula, código de inventario, equipo en reparación, préstamo vencido, límite de equipos, fechas y hora |
-| Registro de equipo | POST | `procesar_secundaria.php` | Código único, categoría de lista blanca, fecha de adquisición, enlace al manual |
+| Solicitar préstamo | POST | `procesar_principal.php` | Cédula, correo, equipo de la lista, equipo en reparación, equipo ya prestado, préstamo vencido, límite de equipos, fechas en dd/mm/aaaa (la devolución de 0 a 3 días después del préstamo) |
+| Registro de equipo | POST | `procesar_secundaria.php` | Código único, categoría de lista blanca, fecha de adquisición en dd/mm/aaaa, enlace al manual |
 | Búsqueda de préstamos | GET | `principal_listado.php` | Estudiante o código de inventario |
-| Filtro de préstamos | GET | `principal_listado.php` | Estado y rango de fechas |
+| Filtro de préstamos | GET | `principal_listado.php` | Estado y rango de fechas en dd/mm/aaaa |
 | Paginación | GET | `principal_listado.php?pagina=N` | 5 préstamos por página; números inválidos o fuera de rango caen en una página válida |
 
 ## Datos de demostración
 
-`config/datos_demo.php` contiene los equipos, los préstamos y los parámetros de la regla. Incluye las tres semillas dictadas en clase y el equipo `RED-40130` (Router 1941) en reparación. Mientras no haya base de datos, es la única fuente de datos.
+`config/datos_demo.php` contiene los equipos, los préstamos y los parámetros de la regla. Incluye las tres semillas dictadas en clase y el equipo `RED-40130` (Router 1941) en reparación. Cada equipo tiene un lugar de retiro, que es el mismo para todos: Pasillo de laboratorios, edificio 3, piso 4. Mientras no haya base de datos, es la única fuente de datos.
 
 ## Reglas de préstamo
 
 - Máximo 3 equipos prestados a la vez. Un kit cuenta como 1; los cables y accesorios no cuentan.
-- Cada préstamo dura máximo 3 días.
+- Cada préstamo dura máximo 3 días. Se puede devolver el mismo día del préstamo.
 - Quien tenga un préstamo vencido no puede solicitar otro hasta devolverlo.
 - `RED-40130` (Router 1941) está en reparación: no se puede solicitar y el sistema responde "Equipo no disponible".
+- Un equipo que ya está prestado no se puede volver a solicitar.
 
-El límite de equipos se cuenta con los préstamos que tienen correo en `config/datos_demo.php`.
+El límite de equipos y el bloqueo por vencido se cuentan con los préstamos que tienen correo en `config/datos_demo.php`.
 
 ## Seguridad
 
 - Toda salida en pantalla pasa por `escapar()`, que usa `htmlspecialchars()`.
 - Las contraseñas se guardan solo como hash con `password_hash()` y se verifican con `password_verify()`. Nunca se muestran.
-- Los archivos de `includes/` tienen una guarda: si se abren directamente, muestran "Acceso denegado".
+- Los archivos de `includes/` y `clases/` tienen una guarda y un `.htaccess` que bloquea el acceso directo. La guarda funciona también con `php -S`; el `.htaccess` solo con Apache.
 - Todos los campos se validan en el servidor. Los `select` se validan contra listas blancas.
+
+## Clases
+
+En `clases/`: `Validador` (reglas reutilizables), `Usuario` (correo, rol y verificación de contraseña), `Prestamo` (código, correo, fechas y estado) y `Equipo` (código, nombre, categoría y reparación). Las clases tienen propiedades privadas, constructor y métodos get y set con validación. Todavía no las usan las páginas.
 
 ## Funciones propias
 
-En `includes/funciones.php`: `limpiar()`, `escapar()`, `redirigir()`, `obtener_rol()`, `formatear_fecha()` y `mostrar_errores()`.
+En `includes/funciones.php`: `limpiar()`, `escapar()`, `redirigir()`, `obtener_rol()`, `formatear_fecha()`, `mostrar_errores()` y `fecha_iso()`.
+
+## Pruebas y trazabilidad
+
+- `docs/plan_pruebas.md`: 17 casos de prueba con su resultado. Las capturas se guardan fuera del repositorio.
+- `docs/trazabilidad.md`: matriz que relaciona cada requerimiento funcional de la propuesta con su archivo y su prueba.
 
 ## Documentos
 
