@@ -20,14 +20,10 @@ if (!in_array($estado, $estados_validos, true)) {
 }
 
 $desde = (isset($_GET['fecha_desde']) && is_string($_GET['fecha_desde'])) ? limpiar($_GET['fecha_desde']) : '';
-if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $desde) || !checkdate((int) substr($desde, 5, 2), (int) substr($desde, 8, 2), (int) substr($desde, 0, 4))) {
-    $desde = '';
-}
+$desdeIso = fecha_iso($desde);
 
 $hasta = (isset($_GET['fecha_hasta']) && is_string($_GET['fecha_hasta'])) ? limpiar($_GET['fecha_hasta']) : '';
-if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $hasta) || !checkdate((int) substr($hasta, 5, 2), (int) substr($hasta, 8, 2), (int) substr($hasta, 0, 4))) {
-    $hasta = '';
-}
+$hastaIso = fecha_iso($hasta);
 
 // Filtrado de los préstamos de demostración.
 $filtrados = [];
@@ -39,10 +35,10 @@ foreach ($prestamos as $p) {
     if ($estado !== 'todos' && strtolower($p['estado']) !== $estado) {
         continue;
     }
-    if ($desde !== '' && $p['salida'] < $desde) {
+    if ($desdeIso !== '' && $p['salida'] < $desdeIso) {
         continue;
     }
-    if ($hasta !== '' && $p['salida'] > $hasta) {
+    if ($hastaIso !== '' && $p['salida'] > $hastaIso) {
         continue;
     }
     $filtrados[] = $p;
@@ -98,11 +94,11 @@ require_once 'includes/encabezado.php';
         </div>
         <div class="eq02-campo">
           <label for="fecha_desde">Desde</label>
-          <input type="date" id="fecha_desde" name="fecha_desde" value="<?= escapar($desde) ?>" min="2026-01-01" max="2026-12-31">
+          <input type="text" placeholder="dd/mm/aaaa" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" maxlength="10" id="fecha_desde" name="fecha_desde" value="<?= escapar($desde) ?>">
         </div>
         <div class="eq02-campo">
           <label for="fecha_hasta">Hasta</label>
-          <input type="date" id="fecha_hasta" name="fecha_hasta" value="<?= escapar($hasta) ?>" min="2026-01-01" max="2026-12-31">
+          <input type="text" placeholder="dd/mm/aaaa" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" maxlength="10" id="fecha_hasta" name="fecha_hasta" value="<?= escapar($hasta) ?>">
         </div>
         <div class="eq02-campo">
           <button type="submit" class="eq02-boton">Filtrar</button>

@@ -47,7 +47,7 @@ require_once 'includes/encabezado.php';
             <input type="hidden" name="id_prestamo" value="45">
             <div class="eq02-campo">
               <label for="fecha_hora_devolucion_ele00045">Fecha y hora de devolución <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-              <input type="datetime-local" id="fecha_hora_devolucion_ele00045" name="fecha_hora_devolucion" required min="2026-10-13T09:30" max="2026-10-19T20:00" aria-describedby="eq02-ayuda-devolucion-ele00045">
+              <input type="text" id="fecha_hora_devolucion_ele00045" name="fecha_hora_devolucion" required placeholder="dd/mm/aaaa hh:mm" aria-describedby="eq02-ayuda-devolucion-ele00045">
               <span class="eq02-ayuda" id="eq02-ayuda-devolucion-ele00045">Entre la salida (13/10/2026) y la fecha de referencia (19/10/2026).</span>
             </div>
             <div class="eq02-campo">
@@ -100,7 +100,7 @@ require_once 'includes/encabezado.php';
             <input type="hidden" name="id_prestamo" value="12">
             <div class="eq02-campo">
               <label for="fecha_hora_devolucion_med00012">Fecha y hora de devolución <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-              <input type="datetime-local" id="fecha_hora_devolucion_med00012" name="fecha_hora_devolucion" required min="2026-10-18T10:00" max="2026-10-19T20:00" aria-describedby="eq02-ayuda-devolucion-med00012">
+              <input type="text" id="fecha_hora_devolucion_med00012" name="fecha_hora_devolucion" required placeholder="dd/mm/aaaa hh:mm" aria-describedby="eq02-ayuda-devolucion-med00012">
               <span class="eq02-ayuda" id="eq02-ayuda-devolucion-med00012">Entre la salida (18/10/2026) y la fecha de referencia (19/10/2026).</span>
             </div>
             <div class="eq02-campo">
@@ -153,7 +153,7 @@ require_once 'includes/encabezado.php';
             <input type="hidden" name="id_prestamo" value="7">
             <div class="eq02-campo">
               <label for="fecha_hora_devolucion_kit00007">Fecha y hora de devolución <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-              <input type="datetime-local" id="fecha_hora_devolucion_kit00007" name="fecha_hora_devolucion" required min="2026-10-19T08:30" max="2026-10-19T20:00" aria-describedby="eq02-ayuda-devolucion-kit00007">
+              <input type="text" id="fecha_hora_devolucion_kit00007" name="fecha_hora_devolucion" required placeholder="dd/mm/aaaa hh:mm" aria-describedby="eq02-ayuda-devolucion-kit00007">
               <span class="eq02-ayuda" id="eq02-ayuda-devolucion-kit00007">Entre la salida (19/10/2026) y la fecha de referencia (19/10/2026).</span>
             </div>
             <div class="eq02-campo">
@@ -206,7 +206,7 @@ require_once 'includes/encabezado.php';
             <input type="hidden" name="id_prestamo" value="20">
             <div class="eq02-campo">
               <label for="fecha_hora_devolucion_med00020">Fecha y hora de devolución <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-              <input type="datetime-local" id="fecha_hora_devolucion_med00020" name="fecha_hora_devolucion" required min="2026-10-18T14:00" max="2026-10-19T20:00" aria-describedby="eq02-ayuda-devolucion-med00020">
+              <input type="text" id="fecha_hora_devolucion_med00020" name="fecha_hora_devolucion" required placeholder="dd/mm/aaaa hh:mm" aria-describedby="eq02-ayuda-devolucion-med00020">
               <span class="eq02-ayuda" id="eq02-ayuda-devolucion-med00020">Entre la salida (18/10/2026) y la fecha de referencia (19/10/2026).</span>
             </div>
             <div class="eq02-campo">
