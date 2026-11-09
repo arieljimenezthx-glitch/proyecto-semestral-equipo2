@@ -44,15 +44,6 @@ require_once 'includes/encabezado.php';
               </div>
               <span class="eq02-ayuda" id="eq02-ayuda-tipo-item">Los cables y accesorios no se piden con un código: se indican en «Cables o accesorios adicionales» y no cuentan para el límite.</span>
             </fieldset>
-            <div class="eq02-campo">
-              <label for="id_laboratorio">Laboratorio <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-              <select id="id_laboratorio" name="id_laboratorio" required>
-                <option value="">Seleccione el laboratorio</option>
-                <option value="1">Electrónica (edificio 3, aula 301)</option>
-                <option value="2">Redes (edificio 3, aula 305)</option>
-                <option value="3">Sistemas embebidos (edificio 1, aula 112)</option>
-              </select>
-            </div>
           </fieldset>
           <fieldset>
             <legend>Fechas del préstamo</legend>

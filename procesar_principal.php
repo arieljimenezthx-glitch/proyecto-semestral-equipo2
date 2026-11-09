@@ -11,7 +11,6 @@ $cedula = (isset($_POST['cedula_estudiante']) && is_string($_POST['cedula_estudi
 $correo = (isset($_POST['correo_estudiante']) && is_string($_POST['correo_estudiante'])) ? limpiar($_POST['correo_estudiante']) : '';
 $codigo = (isset($_POST['codigo_inventario']) && is_string($_POST['codigo_inventario'])) ? limpiar($_POST['codigo_inventario']) : '';
 $tipo = (isset($_POST['tipo_item']) && is_string($_POST['tipo_item'])) ? limpiar($_POST['tipo_item']) : '';
-$laboratorio = (isset($_POST['id_laboratorio']) && is_string($_POST['id_laboratorio'])) ? limpiar($_POST['id_laboratorio']) : '';
 $fecha_prestamo = (isset($_POST['fecha_prestamo']) && is_string($_POST['fecha_prestamo'])) ? limpiar($_POST['fecha_prestamo']) : '';
 $hora_retiro = (isset($_POST['hora_retiro']) && is_string($_POST['hora_retiro'])) ? limpiar($_POST['hora_retiro']) : '';
 $fecha_devolucion = (isset($_POST['fecha_devolucion']) && is_string($_POST['fecha_devolucion'])) ? limpiar($_POST['fecha_devolucion']) : '';
@@ -39,9 +38,6 @@ if (!preg_match('/^[A-Z]{3}-[0-9]{5}$/', $codigo)) {
 }
 if ($tipo !== 'equipo' && $tipo !== 'kit') {
     $errores[] = 'Indica si el ítem es equipo o kit.';
-}
-if (!in_array($laboratorio, ['1', '2', '3'], true)) {
-    $errores[] = 'Selecciona un laboratorio válido.';
 }
 if (!preg_match('/^[0-2][0-9]:[0-5][0-9]$/', $hora_retiro) || $hora_retiro < '08:00' || $hora_retiro > '20:00') {
     $errores[] = 'La hora de retiro debe estar entre las 08:00 y las 20:00.';
@@ -97,6 +93,7 @@ require_once 'includes/encabezado.php';
       <h1>Préstamo registrado</h1>
       <ul>
         <li>Equipo: <?= escapar($codigo) ?> (<?= escapar($equipos[$codigo]['nombre']) ?>)</li>
+        <li>Lugar de retiro: <?= escapar($equipos[$codigo]['lugar']) ?></li>
         <li>Estudiante: <?= escapar($correo) ?></li>
         <li>Préstamo: <?= escapar(formatear_fecha($fecha_prestamo)) ?> a las <?= escapar($hora_retiro) ?></li>
         <li>Devolución: <?= escapar(formatear_fecha($fecha_devolucion)) ?></li>
