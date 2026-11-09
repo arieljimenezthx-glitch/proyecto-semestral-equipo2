@@ -36,7 +36,8 @@ if (!in_array($categoria, ['electronica', 'medicion', 'redes', 'computo', 'kit',
     $errores[] = 'Selecciona una categoría de la lista.';
 }
 if ($fecha !== '') {
-    if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $fecha) || $fecha > '2026-10-19') {
+    $fecha_adq_iso = fecha_iso($fecha);
+    if ($fecha_adq_iso === '' || $fecha_adq_iso > '2026-10-19') {
         $errores[] = 'La fecha de adquisición no es válida ni puede ser posterior al 19/10/2026.';
     }
 }
@@ -62,7 +63,7 @@ require_once 'includes/encabezado.php';
         <li>Marca y modelo: <?= escapar($marca) ?></li>
         <li>Número de serie: <?= escapar($serie) ?></li>
         <li>Categoría: <?= escapar($categoria) ?></li>
-        <li>Fecha de adquisición: <?= $fecha !== '' ? escapar(formatear_fecha($fecha)) : 'No indicada' ?></li>
+        <li>Fecha de adquisición: <?= $fecha !== '' ? escapar($fecha) : 'No indicada' ?></li>
         <li>Disponible para préstamo: <?= $disponible ? 'Sí' : 'No' ?></li>
       </ul>
       <p class="eq02-nota">Demostración: el equipo todavía no se guarda en base de datos. Eso llega en el Hito #3.</p>

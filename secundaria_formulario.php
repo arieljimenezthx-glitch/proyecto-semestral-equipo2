@@ -50,7 +50,7 @@ require_once 'includes/encabezado.php';
               </div>
               <div class="eq02-campo">
                 <label for="fecha_adquisicion">Fecha de adquisición</label>
-                <input type="date" id="fecha_adquisicion" name="fecha_adquisicion" max="2026-10-19">
+                <input type="text" id="fecha_adquisicion" name="fecha_adquisicion" placeholder="dd/mm/aaaa" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" maxlength="10">
               </div>
               <div class="eq02-campo">
                 <label for="foto_equipo">Foto del equipo</label>

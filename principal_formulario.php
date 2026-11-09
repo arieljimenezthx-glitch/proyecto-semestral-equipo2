@@ -33,7 +33,7 @@ require_once 'includes/encabezado.php';
               <select id="codigo_inventario" name="codigo_inventario" required>
                 <option value="">Seleccione un equipo</option>
 <?php foreach ($equipos as $codigo => $e): ?>
-                <option value="<?= escapar($codigo) ?>"<?= $e['en_reparacion'] ? ' disabled' : '' ?>><?= escapar($codigo) ?> · <?= escapar($e['nombre']) ?><?= $e['en_reparacion'] ? ' (en reparación)' : '' ?></option>
+                <option value="<?= escapar($codigo) ?>"><?= escapar($codigo) ?> · <?= escapar($e['nombre']) ?><?= $e['en_reparacion'] ? ' (en reparación)' : '' ?></option>
 <?php endforeach; ?>
               </select>
             </div>
@@ -56,12 +56,12 @@ require_once 'includes/encabezado.php';
             <div class="eq02-rejilla">
               <div class="eq02-campo">
                 <label for="fecha_prestamo">Fecha de préstamo <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-                <input type="date" id="fecha_prestamo" name="fecha_prestamo" required min="2026-10-19" max="2026-10-19" value="2026-10-19" aria-describedby="eq02-ayuda-fecha-prestamo">
+                <input type="text" id="fecha_prestamo" name="fecha_prestamo" required placeholder="dd/mm/aaaa" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" maxlength="10" value="19/10/2026" aria-describedby="eq02-ayuda-fecha-prestamo">
                 <span class="eq02-ayuda" id="eq02-ayuda-fecha-prestamo">En este ejemplo el préstamo sale el 19/10/2026.</span>
               </div>
               <div class="eq02-campo">
                 <label for="fecha_devolucion">Fecha de devolución <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-                <input type="date" id="fecha_devolucion" name="fecha_devolucion" required min="2026-10-19" max="2026-10-22" aria-describedby="eq02-ayuda-fecha-devolucion">
+                <input type="text" id="fecha_devolucion" name="fecha_devolucion" required placeholder="dd/mm/aaaa" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" maxlength="10" aria-describedby="eq02-ayuda-fecha-devolucion">
                 <span class="eq02-ayuda" id="eq02-ayuda-fecha-devolucion">Máximo 3 días: en este ejemplo, del 19/10/2026 al 22/10/2026. En la maqueta el rango es fijo; el sistema final lo calculará desde la fecha de préstamo.</span>
               </div>
               <div class="eq02-campo">

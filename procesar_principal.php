@@ -11,8 +11,8 @@ $cedula = (isset($_POST['cedula_estudiante']) && is_string($_POST['cedula_estudi
 $correo = (isset($_POST['correo_estudiante']) && is_string($_POST['correo_estudiante'])) ? limpiar($_POST['correo_estudiante']) : '';
 $codigo = (isset($_POST['codigo_inventario']) && is_string($_POST['codigo_inventario'])) ? limpiar($_POST['codigo_inventario']) : '';
 $tipo = (isset($_POST['tipo_item']) && is_string($_POST['tipo_item'])) ? limpiar($_POST['tipo_item']) : '';
-$fecha_prestamo = (isset($_POST['fecha_prestamo']) && is_string($_POST['fecha_prestamo'])) ? limpiar($_POST['fecha_prestamo']) : '';
-$fecha_devolucion = (isset($_POST['fecha_devolucion']) && is_string($_POST['fecha_devolucion'])) ? limpiar($_POST['fecha_devolucion']) : '';
+$fecha_prestamo = (isset($_POST['fecha_prestamo']) && is_string($_POST['fecha_prestamo'])) ? fecha_iso(limpiar($_POST['fecha_prestamo'])) : '';
+$fecha_devolucion = (isset($_POST['fecha_devolucion']) && is_string($_POST['fecha_devolucion'])) ? fecha_iso(limpiar($_POST['fecha_devolucion'])) : '';
 $accesorios = (isset($_POST['cantidad_accesorios']) && is_string($_POST['cantidad_accesorios'])) ? limpiar($_POST['cantidad_accesorios']) : '';
 $motivo = (isset($_POST['motivo']) && is_string($_POST['motivo'])) ? limpiar($_POST['motivo']) : '';
 

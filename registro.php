@@ -29,7 +29,7 @@ require_once 'includes/encabezado.php';
             </div>
             <div class="eq02-campo">
               <label for="fecha_nacimiento">Fecha de nacimiento <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-              <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required max="2026-10-19" autocomplete="bday">
+              <input type="text" id="fecha_nacimiento" name="fecha_nacimiento" required placeholder="dd/mm/aaaa" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" maxlength="10" autocomplete="bday">
             </div>
           </div>
         </fieldset>

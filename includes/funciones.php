@@ -41,3 +41,13 @@ function mostrar_errores($errores) {
     $html .= '</ul></div>';
     return $html;
 }
+
+function fecha_iso($texto) {
+    if (!preg_match('/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/', $texto, $m)) {
+        return '';
+    }
+    if (!checkdate((int) $m[2], (int) $m[1], (int) $m[3])) {
+        return '';
+    }
+    return $m[3] . '-' . $m[2] . '-' . $m[1];
+}
