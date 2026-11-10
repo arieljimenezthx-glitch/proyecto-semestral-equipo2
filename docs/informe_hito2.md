@@ -67,11 +67,13 @@ Regla del proyecto: si una acción cambia datos, usa POST. Nunca se cambia un da
 
 | Opción | Ventajas | Desventajas | Costo |
 |--------|----------|-------------|-------|
-| Hosting compartido con PHP y MySQL | Fácil de usar y de configurar. | Recursos limitados y compartidos. | [Verificar] |
-| Servidor privado virtual (VPS) | Control total del servidor. | Hay que administrarlo: actualizaciones, seguridad y respaldos. | [Verificar] |
+| Hosting compartido con PHP y MySQL | Fácil de usar y de configurar. | Recursos limitados y compartidos. | Desde unos USD 4.50 al mes. |
+| Servidor privado virtual (VPS) | Control total del servidor. | Hay que administrarlo: actualizaciones, seguridad y respaldos. | Unos USD 3 a 6 al mes (1 GB de RAM). La renovación puede costar más. |
 
-- **Dominio:** un dominio `.pa`, registrado en NIC Panamá. Costo: [Verificar].
+- **Dominio:** un dominio `.pa`, registrado en NIC Panamá. Costo: unos USD 165 a 297 al año, según el registrador. Hay que tener antes un `.com.pa`.
 - **Base de datos:** MySQL, que es la que usa el Hito #3. Viene incluida en las dos opciones de hosting.
+
+Los precios son aproximados y vienen de páginas de terceros (letsdomains.com para el dominio, neolo.com/panama para el hosting y vpssos.com para el VPS). Hay que confirmarlos en cada proveedor antes de contratar.
 
 ## 7. Reflexión individual
 
