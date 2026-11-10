@@ -1,34 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Registro de nuevos estudiantes en SIGEL para solicitar préstamos de equipos del laboratorio.">
-  <title>Registro de estudiante · SIGEL</title>
-  <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-  <header id="eq02-encabezado">
-    <a href="index.html" class="eq02-marca"><img src="img/logo.svg" alt="Logotipo de SIGEL: matraz de laboratorio" width="40" height="40"> SIGEL</a>
-    <nav class="eq02-menu" aria-label="Menú principal">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
-        <li><a href="principal-listado.html">Préstamos</a></li>
-        <li><a href="secundaria-formulario.html">Equipos</a></li>
-        <li><a href="panel.html">Panel</a></li>
-        <li><a href="perfil.html">Mi perfil</a></li>
-        <li><a href="login.html">Iniciar sesión</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="eq02-principal">
+<?php
+define('APP_ACCESO', true);
+$titulo = 'Registro de estudiante';
+$descripcion = 'Registro de nuevos estudiantes en SIGEL para solicitar préstamos de equipos del laboratorio.';
+$pagina_actual = 'registro.php';
+require_once 'includes/encabezado.php';
+?>
     <section class="eq02-formulario">
       <h1>Crear cuenta de estudiante</h1>
       <p><strong>Registro exclusivo para estudiantes de la UTP.</strong> Tus datos se usarán para identificarte al retirar un equipo.</p>
       <p class="eq02-nota">Las cuentas de laboratorista y administrador no se crean aquí: las crea el administrador del sistema.</p>
-      <form action="#" method="post">
+      <form action="procesar_registro.php" method="post">
         <p class="eq02-nota">Los campos marcados con <span class="eq02-obligatorio">*</span> son obligatorios.</p>
         <fieldset>
           <legend>Datos personales</legend>
@@ -48,7 +29,7 @@
             </div>
             <div class="eq02-campo">
               <label for="fecha_nacimiento">Fecha de nacimiento <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-              <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required max="2026-10-19" autocomplete="bday">
+              <input type="text" id="fecha_nacimiento" name="fecha_nacimiento" required placeholder="dd/mm/aaaa" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" maxlength="10" autocomplete="bday">
             </div>
           </div>
         </fieldset>
@@ -177,33 +158,12 @@
             <input type="checkbox" id="acepta_reglamento" name="acepta_reglamento" value="1" required>
             <label for="acepta_reglamento">Acepto el reglamento de préstamos del laboratorio <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
           </div>
-          <p><a href="index.html#eq02-reglas">Leer las reglas de préstamo</a></p>
+          <p><a href="index.php#eq02-reglas">Leer las reglas de préstamo</a></p>
         </fieldset>
         <p class="eq02-acciones">
           <button type="submit" class="eq02-boton">Crear cuenta</button>
-          <a href="login.html" class="eq02-boton eq02-boton-secundario">Ya tengo cuenta</a>
+          <a href="login.php" class="eq02-boton eq02-boton-secundario">Ya tengo cuenta</a>
         </p>
       </form>
     </section>
-  </main>
-
-  <footer id="eq02-pie" class="eq02-pie">
-    <nav aria-label="Mapa del sitio">
-      <h2>Mapa del sitio</h2>
-      <ul class="eq02-mapa">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="login.html">Iniciar sesión</a></li>
-        <li><a href="registro.html">Registro</a></li>
-        <li><a href="recuperar.html">Recuperar contraseña</a></li>
-        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
-        <li><a href="principal-listado.html">Listado de préstamos</a></li>
-        <li><a href="principal-detalle.html">Detalle del préstamo</a></li>
-        <li><a href="secundaria-formulario.html">Registro de equipos</a></li>
-        <li><a href="panel.html">Panel de administración</a></li>
-        <li><a href="perfil.html">Mi perfil</a></li>
-      </ul>
-    </nav>
-    <p><small>&copy; 2026 SIGEL · Equipo 02 · Ariel Jimenez y Alejandro Saenz · Desarrollo Web</small></p>
-  </footer>
-</body>
-</html>
+<?php require_once 'includes/pie.php'; ?>

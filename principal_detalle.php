@@ -1,29 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Detalle de los préstamos de demostración de SIGEL con registro de devolución, modificación y eliminación con confirmación.">
-  <title>Detalle de préstamos · SIGEL</title>
-  <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-  <header id="eq02-encabezado">
-    <a href="index.html" class="eq02-marca"><img src="img/logo.svg" alt="Logotipo de SIGEL: matraz de laboratorio" width="40" height="40"> SIGEL</a>
-    <nav class="eq02-menu" aria-label="Menú principal">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
-        <li><a href="principal-listado.html">Préstamos</a></li>
-        <li><a href="secundaria-formulario.html">Equipos</a></li>
-        <li><a href="panel.html">Panel</a></li>
-        <li><a href="perfil.html">Mi perfil</a></li>
-        <li><a href="login.html">Iniciar sesión</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="eq02-principal">
+<?php
+define('APP_ACCESO', true);
+$titulo = 'Detalle de préstamos';
+$descripcion = 'Detalle de los préstamos de demostración de SIGEL con registro de devolución, modificación y eliminación con confirmación.';
+$pagina_actual = 'principal_detalle.php';
+require_once 'includes/encabezado.php';
+?>
     <h1>Detalle de préstamos</h1>
     <p>Datos de demostración al 19/10/2026. Cada enlace <strong>Ver detalle</strong> del listado lleva a la sección de su préstamo en esta página. En el sistema final se mostrará un solo préstamo, cargado desde la base de datos.</p>
     <p class="eq02-nota">Los campos marcados con <span class="eq02-obligatorio">*</span> son obligatorios.</p>
@@ -57,16 +38,12 @@
           <dd>Práctica 4 de Circuitos II.</dd>
         </dl>
         <div>
-          <figure>
-            <img src="img/osciloscopio.svg" alt="Ilustración de un osciloscopio digital con una señal en pantalla" width="160" height="120">
-            <figcaption>Osciloscopio <abbr title="Rigol Technologies">Rigol</abbr> DS1054Z.</figcaption>
-          </figure>
           <h3>Registrar devolución</h3>
           <form action="#" method="post">
             <input type="hidden" name="id_prestamo" value="45">
             <div class="eq02-campo">
               <label for="fecha_hora_devolucion_ele00045">Fecha y hora de devolución <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-              <input type="datetime-local" id="fecha_hora_devolucion_ele00045" name="fecha_hora_devolucion" required min="2026-10-13T09:30" max="2026-10-19T20:00" aria-describedby="eq02-ayuda-devolucion-ele00045">
+              <input type="text" id="fecha_hora_devolucion_ele00045" name="fecha_hora_devolucion" required placeholder="dd/mm/aaaa hh:mm" aria-describedby="eq02-ayuda-devolucion-ele00045">
               <span class="eq02-ayuda" id="eq02-ayuda-devolucion-ele00045">Entre la salida (13/10/2026) y la fecha de referencia (19/10/2026).</span>
             </div>
             <div class="eq02-campo">
@@ -83,7 +60,7 @@
       </div>
       <h3>Acciones</h3>
       <p class="eq02-nota">Modificar: en esta maqueta el botón abre el formulario de préstamo vacío; en el sistema final se cargarán los datos de ELE-00045.</p>
-      <p class="eq02-acciones"><a href="principal-formulario.html" class="eq02-boton eq02-boton-secundario">Abrir formulario para modificar</a></p>
+      <p class="eq02-acciones"><a href="principal_formulario.php" class="eq02-boton eq02-boton-secundario">Abrir formulario para modificar</a></p>
       <form action="#" method="post">
         <input type="hidden" name="id_prestamo" value="45">
         <div class="eq02-opcion">
@@ -92,7 +69,7 @@
         </div>
         <button type="submit" name="accion" value="eliminar" class="eq02-boton eq02-boton-peligro">Eliminar préstamo</button>
       </form>
-      <p><a href="principal-listado.html">Volver al listado de préstamos</a></p>
+      <p><a href="principal_listado.php">Volver al listado de préstamos</a></p>
     </article>
     <article class="eq02-tarjeta eq02-prestamo" id="eq02-prestamo-med-00012">
       <h2>Préstamo <span class="eq02-sin-corte">MED-00012</span> <span class="eq02-estado">Activo</span></h2>
@@ -119,7 +96,7 @@
             <input type="hidden" name="id_prestamo" value="12">
             <div class="eq02-campo">
               <label for="fecha_hora_devolucion_med00012">Fecha y hora de devolución <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-              <input type="datetime-local" id="fecha_hora_devolucion_med00012" name="fecha_hora_devolucion" required min="2026-10-18T10:00" max="2026-10-19T20:00" aria-describedby="eq02-ayuda-devolucion-med00012">
+              <input type="text" id="fecha_hora_devolucion_med00012" name="fecha_hora_devolucion" required placeholder="dd/mm/aaaa hh:mm" aria-describedby="eq02-ayuda-devolucion-med00012">
               <span class="eq02-ayuda" id="eq02-ayuda-devolucion-med00012">Entre la salida (18/10/2026) y la fecha de referencia (19/10/2026).</span>
             </div>
             <div class="eq02-campo">
@@ -136,7 +113,7 @@
       </div>
       <h3>Acciones</h3>
       <p class="eq02-nota">Modificar: en esta maqueta el botón abre el formulario de préstamo vacío; en el sistema final se cargarán los datos de MED-00012.</p>
-      <p class="eq02-acciones"><a href="principal-formulario.html" class="eq02-boton eq02-boton-secundario">Abrir formulario para modificar</a></p>
+      <p class="eq02-acciones"><a href="principal_formulario.php" class="eq02-boton eq02-boton-secundario">Abrir formulario para modificar</a></p>
       <form action="#" method="post">
         <input type="hidden" name="id_prestamo" value="12">
         <div class="eq02-opcion">
@@ -145,7 +122,7 @@
         </div>
         <button type="submit" name="accion" value="eliminar" class="eq02-boton eq02-boton-peligro">Eliminar préstamo</button>
       </form>
-      <p><a href="principal-listado.html">Volver al listado de préstamos</a></p>
+      <p><a href="principal_listado.php">Volver al listado de préstamos</a></p>
     </article>
     <article class="eq02-tarjeta eq02-prestamo" id="eq02-prestamo-kit-00007">
       <h2>Préstamo <span class="eq02-sin-corte">KIT-00007</span> <span class="eq02-estado">Activo</span></h2>
@@ -172,7 +149,7 @@
             <input type="hidden" name="id_prestamo" value="7">
             <div class="eq02-campo">
               <label for="fecha_hora_devolucion_kit00007">Fecha y hora de devolución <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-              <input type="datetime-local" id="fecha_hora_devolucion_kit00007" name="fecha_hora_devolucion" required min="2026-10-19T08:30" max="2026-10-19T20:00" aria-describedby="eq02-ayuda-devolucion-kit00007">
+              <input type="text" id="fecha_hora_devolucion_kit00007" name="fecha_hora_devolucion" required placeholder="dd/mm/aaaa hh:mm" aria-describedby="eq02-ayuda-devolucion-kit00007">
               <span class="eq02-ayuda" id="eq02-ayuda-devolucion-kit00007">Entre la salida (19/10/2026) y la fecha de referencia (19/10/2026).</span>
             </div>
             <div class="eq02-campo">
@@ -189,7 +166,7 @@
       </div>
       <h3>Acciones</h3>
       <p class="eq02-nota">Modificar: en esta maqueta el botón abre el formulario de préstamo vacío; en el sistema final se cargarán los datos de KIT-00007.</p>
-      <p class="eq02-acciones"><a href="principal-formulario.html" class="eq02-boton eq02-boton-secundario">Abrir formulario para modificar</a></p>
+      <p class="eq02-acciones"><a href="principal_formulario.php" class="eq02-boton eq02-boton-secundario">Abrir formulario para modificar</a></p>
       <form action="#" method="post">
         <input type="hidden" name="id_prestamo" value="7">
         <div class="eq02-opcion">
@@ -198,7 +175,7 @@
         </div>
         <button type="submit" name="accion" value="eliminar" class="eq02-boton eq02-boton-peligro">Eliminar préstamo</button>
       </form>
-      <p><a href="principal-listado.html">Volver al listado de préstamos</a></p>
+      <p><a href="principal_listado.php">Volver al listado de préstamos</a></p>
     </article>
     <article class="eq02-tarjeta eq02-prestamo" id="eq02-prestamo-med-00020">
       <h2>Préstamo <span class="eq02-sin-corte">MED-00020</span> <span class="eq02-estado">Activo</span></h2>
@@ -225,7 +202,7 @@
             <input type="hidden" name="id_prestamo" value="20">
             <div class="eq02-campo">
               <label for="fecha_hora_devolucion_med00020">Fecha y hora de devolución <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-              <input type="datetime-local" id="fecha_hora_devolucion_med00020" name="fecha_hora_devolucion" required min="2026-10-18T14:00" max="2026-10-19T20:00" aria-describedby="eq02-ayuda-devolucion-med00020">
+              <input type="text" id="fecha_hora_devolucion_med00020" name="fecha_hora_devolucion" required placeholder="dd/mm/aaaa hh:mm" aria-describedby="eq02-ayuda-devolucion-med00020">
               <span class="eq02-ayuda" id="eq02-ayuda-devolucion-med00020">Entre la salida (18/10/2026) y la fecha de referencia (19/10/2026).</span>
             </div>
             <div class="eq02-campo">
@@ -242,7 +219,7 @@
       </div>
       <h3>Acciones</h3>
       <p class="eq02-nota">Modificar: en esta maqueta el botón abre el formulario de préstamo vacío; en el sistema final se cargarán los datos de MED-00020.</p>
-      <p class="eq02-acciones"><a href="principal-formulario.html" class="eq02-boton eq02-boton-secundario">Abrir formulario para modificar</a></p>
+      <p class="eq02-acciones"><a href="principal_formulario.php" class="eq02-boton eq02-boton-secundario">Abrir formulario para modificar</a></p>
       <form action="#" method="post">
         <input type="hidden" name="id_prestamo" value="20">
         <div class="eq02-opcion">
@@ -251,7 +228,7 @@
         </div>
         <button type="submit" name="accion" value="eliminar" class="eq02-boton eq02-boton-peligro">Eliminar préstamo</button>
       </form>
-      <p><a href="principal-listado.html">Volver al listado de préstamos</a></p>
+      <p><a href="principal_listado.php">Volver al listado de préstamos</a></p>
     </article>
     <article class="eq02-tarjeta eq02-prestamo" id="eq02-prestamo-red-00123">
       <h2>Préstamo <span class="eq02-sin-corte">RED-00123</span> <span class="eq02-estado eq02-estado-devuelto">Devuelto</span></h2>
@@ -279,7 +256,7 @@
       </div>
       <h3>Acciones</h3>
       <p class="eq02-nota">Modificar: en esta maqueta el botón abre el formulario de préstamo vacío; en el sistema final se cargarán los datos de RED-00123.</p>
-      <p class="eq02-acciones"><a href="principal-formulario.html" class="eq02-boton eq02-boton-secundario">Abrir formulario para modificar</a></p>
+      <p class="eq02-acciones"><a href="principal_formulario.php" class="eq02-boton eq02-boton-secundario">Abrir formulario para modificar</a></p>
       <form action="#" method="post">
         <input type="hidden" name="id_prestamo" value="123">
         <div class="eq02-opcion">
@@ -288,27 +265,6 @@
         </div>
         <button type="submit" name="accion" value="eliminar" class="eq02-boton eq02-boton-peligro">Eliminar préstamo</button>
       </form>
-      <p><a href="principal-listado.html">Volver al listado de préstamos</a></p>
+      <p><a href="principal_listado.php">Volver al listado de préstamos</a></p>
     </article>
-  </main>
-
-  <footer id="eq02-pie" class="eq02-pie">
-    <nav aria-label="Mapa del sitio">
-      <h2>Mapa del sitio</h2>
-      <ul class="eq02-mapa">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="login.html">Iniciar sesión</a></li>
-        <li><a href="registro.html">Registro</a></li>
-        <li><a href="recuperar.html">Recuperar contraseña</a></li>
-        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
-        <li><a href="principal-listado.html">Listado de préstamos</a></li>
-        <li><a href="principal-detalle.html">Detalle del préstamo</a></li>
-        <li><a href="secundaria-formulario.html">Registro de equipos</a></li>
-        <li><a href="panel.html">Panel de administración</a></li>
-        <li><a href="perfil.html">Mi perfil</a></li>
-      </ul>
-    </nav>
-    <p><small>&copy; 2026 SIGEL · Equipo 02 · Ariel Jimenez y Alejandro Saenz · Desarrollo Web</small></p>
-  </footer>
-</body>
-</html>
+<?php require_once 'includes/pie.php'; ?>

@@ -1,33 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Formulario para crear o modificar un préstamo de equipo del laboratorio con su código de inventario.">
-  <title>Solicitar préstamo · SIGEL</title>
-  <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-  <header id="eq02-encabezado">
-    <a href="index.html" class="eq02-marca"><img src="img/logo.svg" alt="Logotipo de SIGEL: matraz de laboratorio" width="40" height="40"> SIGEL</a>
-    <nav class="eq02-menu" aria-label="Menú principal">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="principal-formulario.html" class="eq02-activo" aria-current="page">Solicitar préstamo</a></li>
-        <li><a href="principal-listado.html">Préstamos</a></li>
-        <li><a href="secundaria-formulario.html">Equipos</a></li>
-        <li><a href="panel.html">Panel</a></li>
-        <li><a href="perfil.html">Mi perfil</a></li>
-        <li><a href="login.html">Iniciar sesión</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="eq02-principal">
+<?php
+define('APP_ACCESO', true);
+require_once 'config/datos_demo.php';
+$titulo = 'Solicitar préstamo';
+$descripcion = 'Formulario para crear o modificar un préstamo de equipo del laboratorio con su código de inventario.';
+$pagina_actual = 'principal_formulario.php';
+require_once 'includes/encabezado.php';
+?>
     <div class="eq02-dos-columnas">
       <section class="eq02-formulario">
         <h1>Solicitar préstamo de equipo</h1>
-        <form action="#" method="post">
+        <form action="procesar_principal.php" method="post">
           <p class="eq02-nota">Los campos marcados con <span class="eq02-obligatorio">*</span> son obligatorios.</p>
           <fieldset>
             <legend>Estudiante</legend>
@@ -47,9 +29,19 @@
           <fieldset id="eq02-bloque-equipo">
             <legend>Equipo solicitado</legend>
             <div class="eq02-campo">
-              <label for="codigo_inventario">Código de inventario del equipo <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-              <input type="text" id="codigo_inventario" name="codigo_inventario" required pattern="[A-Z]{3}-[0-9]{5}" minlength="9" maxlength="9" autocomplete="off" placeholder="RED-00123" aria-describedby="eq02-ayuda-codigo-inventario">
-              <span class="eq02-ayuda" id="eq02-ayuda-codigo-inventario">3 letras mayúsculas, guion y 5 números (ej. <code>ELE-00045</code>).</span>
+              <label for="codigo_inventario">Equipo <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
+              <select id="codigo_inventario" name="codigo_inventario" required>
+                <option value="">Seleccione un equipo</option>
+<?php foreach ($equipos as $codigo => $e): ?>
+<?php $prestado = false; ?>
+<?php foreach ($prestamos as $p): ?>
+<?php if ($p['codigo'] === $codigo && $p['estado'] !== 'Devuelto'): ?>
+<?php $prestado = true; ?>
+<?php endif; ?>
+<?php endforeach; ?>
+                <option value="<?= escapar($codigo) ?>"><?= escapar($codigo) ?> · <?= escapar($e['nombre']) ?><?= $e['en_reparacion'] ? ' (en reparación)' : ($prestado ? ' (prestado)' : '') ?></option>
+<?php endforeach; ?>
+              </select>
             </div>
             <fieldset class="eq02-grupo">
               <legend>Tipo de ítem <span class="eq02-obligatorio" aria-hidden="true">*</span></legend>
@@ -63,33 +55,17 @@
               </div>
               <span class="eq02-ayuda" id="eq02-ayuda-tipo-item">Los cables y accesorios no se piden con un código: se indican en «Cables o accesorios adicionales» y no cuentan para el límite.</span>
             </fieldset>
-            <div class="eq02-campo">
-              <label for="id_laboratorio">Laboratorio <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-              <select id="id_laboratorio" name="id_laboratorio" required>
-                <option value="">Seleccione el laboratorio</option>
-                <option value="1">Electrónica (edificio 3, aula 301)</option>
-                <option value="2">Redes (edificio 3, aula 305)</option>
-                <option value="3">Sistemas embebidos (edificio 1, aula 112)</option>
-              </select>
-            </div>
           </fieldset>
           <fieldset>
             <legend>Fechas del préstamo</legend>
-            <p class="eq02-nota">Datos de demostración: fecha de referencia 19/10/2026.</p>
             <div class="eq02-rejilla">
               <div class="eq02-campo">
                 <label for="fecha_prestamo">Fecha de préstamo <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-                <input type="date" id="fecha_prestamo" name="fecha_prestamo" required min="2026-10-19" max="2026-10-19" value="2026-10-19" aria-describedby="eq02-ayuda-fecha-prestamo">
-                <span class="eq02-ayuda" id="eq02-ayuda-fecha-prestamo">En este ejemplo el préstamo sale el 19/10/2026.</span>
-              </div>
-              <div class="eq02-campo">
-                <label for="hora_retiro">Hora de retiro <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-                <input type="time" id="hora_retiro" name="hora_retiro" required min="08:00" max="20:00" step="900">
+                <input type="text" id="fecha_prestamo" name="fecha_prestamo" required placeholder="dd/mm/aaaa" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" maxlength="10">
               </div>
               <div class="eq02-campo">
                 <label for="fecha_devolucion">Fecha de devolución <span class="eq02-obligatorio" aria-hidden="true">*</span></label>
-                <input type="date" id="fecha_devolucion" name="fecha_devolucion" required min="2026-10-19" max="2026-10-22" aria-describedby="eq02-ayuda-fecha-devolucion">
-                <span class="eq02-ayuda" id="eq02-ayuda-fecha-devolucion">Máximo 3 días: en este ejemplo, del 19/10/2026 al 22/10/2026. En la maqueta el rango es fijo; el sistema final lo calculará desde la fecha de préstamo.</span>
+                <input type="text" id="fecha_devolucion" name="fecha_devolucion" required placeholder="dd/mm/aaaa" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" maxlength="10">
               </div>
               <div class="eq02-campo">
                 <label for="cantidad_accesorios">Cables o accesorios adicionales (no cuentan para el límite)</label>
@@ -103,7 +79,7 @@
           </fieldset>
           <p class="eq02-acciones">
             <button type="submit" class="eq02-boton">Registrar préstamo</button>
-            <a href="perfil.html" class="eq02-boton eq02-boton-secundario">Cancelar y volver a mi perfil</a>
+            <a href="perfil.php" class="eq02-boton eq02-boton-secundario">Cancelar y volver a mi perfil</a>
           </p>
         </form>
       </section>
@@ -121,25 +97,4 @@
         </ul>
       </aside>
     </div>
-  </main>
-
-  <footer id="eq02-pie" class="eq02-pie">
-    <nav aria-label="Mapa del sitio">
-      <h2>Mapa del sitio</h2>
-      <ul class="eq02-mapa">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="login.html">Iniciar sesión</a></li>
-        <li><a href="registro.html">Registro</a></li>
-        <li><a href="recuperar.html">Recuperar contraseña</a></li>
-        <li><a href="principal-formulario.html">Solicitar préstamo</a></li>
-        <li><a href="principal-listado.html">Listado de préstamos</a></li>
-        <li><a href="principal-detalle.html">Detalle del préstamo</a></li>
-        <li><a href="secundaria-formulario.html">Registro de equipos</a></li>
-        <li><a href="panel.html">Panel de administración</a></li>
-        <li><a href="perfil.html">Mi perfil</a></li>
-      </ul>
-    </nav>
-    <p><small>&copy; 2026 SIGEL · Equipo 02 · Ariel Jimenez y Alejandro Saenz · Desarrollo Web</small></p>
-  </footer>
-</body>
-</html>
+<?php require_once 'includes/pie.php'; ?>
