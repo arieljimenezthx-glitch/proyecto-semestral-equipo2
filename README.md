@@ -140,7 +140,7 @@ El límite de equipos y el bloqueo por vencido se cuentan con los préstamos que
 
 ## Clases
 
-En `clases/`: `Validador` (reglas reutilizables), `Usuario` (correo, rol y verificación de contraseña), `Prestamo` (código, correo, fechas y estado) y `Equipo` (código, nombre, categoría y reparación). Las clases tienen propiedades privadas, constructor y métodos get y set con validación. Todavía no las usan las páginas.
+En `clases/`: `Validador` (reglas reutilizables), `Usuario` (correo, rol y verificación de contraseña), `Prestamo` (código, correo, fechas y estado) y `Equipo` (código, nombre, categoría y reparación). Las clases tienen propiedades privadas, constructor y métodos get y set con validación. Las usan `procesar_login.php` y `procesar_principal.php`.
 
 ## Funciones propias
 
